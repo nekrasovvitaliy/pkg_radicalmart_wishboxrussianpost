@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" method="upgrade" group="radicalmart">
+	<name>plg_radicalmart_wishboxrussianpost</name>
+	<creationDate>December 2023</creationDate>
+	<version>1.0.0</version>
+	<author>Vitaliy Nekrasov</author>
+	<authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+	<license>GNU General Public License version 2 or later</license>
+	<description>PLG_RADICALMART_WISHBOXRUSSIANPOST_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\RadicalMart\WishboxRussianPost</namespace>
+	<files>
+		<folder plugin="wishboxrussianpost">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxrussianpost.ini</language>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxrussianpost.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxrussianpost.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxrussianpost.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

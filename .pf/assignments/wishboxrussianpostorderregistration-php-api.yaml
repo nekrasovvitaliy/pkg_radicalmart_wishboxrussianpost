@@ -1,0 +1,234 @@
+schema_version: 1
+id: wishboxrussianpostorderregistration-php-api
+title: Актуализировать WishboxRussianPostOrderRegistration.php для одношаговой регистра
+run_id: garage-wishboxrussianpostorderregistration-php-api
+process: task-batch-execution
+status: done
+created_at: '2026-10-27T09:07:18Z'
+updated_at: '2026-10-27T09:09:30Z'
+objective: Актуализировать WishboxRussianPostOrderRegistration.php для одношаговой регистрации заказа в API Почты России вместо двухшагового сценария СДЭК.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: одношаговая регистрация реализована через сервис OrderRegistration.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-27T09:09:25Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Плагин регистрации RadicalMart переведён на одношаговый вызов сервиса Почты России; проверки успешны.
+      recorded_at: '2026-10-27T09:09:30Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Изменены целевой PHP-файл и обязательный PF-отчёт; дальнейших действий в scope не требуется.
+      recorded_at: '2026-10-27T09:09:30Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Финальный результат, проверки и область изменений зафиксированы.
+      recorded_at: '2026-10-27T09:09:30Z'
+  notes: 'Work завершён: одношаговая регистрация реализована через сервис OrderRegistration.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-27T09:07:18Z'
+    completed_at: '2026-10-27T09:07:21Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Создан governed Work для одношаговой регистрации заказа Почты России.
+        recorded_at: '2026-10-27T09:07:21Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Контекст свежий, capsule валиден, scope разрешает изменение целевого плагина.
+        recorded_at: '2026-10-27T09:07:21Z'
+    notes: Передать в планирование анализ текущего CDEK-подобного двухшагового кода и адаптацию под одношаговый API Почты России.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-27T09:07:21Z'
+    completed_at: '2026-10-27T09:08:28Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: 'Одна задача: оставить в плагине обработчик сохранения RadicalMart, запускать одношаговую регистрацию через RadicalMartOrderRegistrationService и удалить CDEK-специфичные события, UUID/PENDING и sync UI.'
+        recorded_at: '2026-10-27T09:08:28Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: 'Изменение ограничено указанным PHP-файлом; проверки: PHP lint и поиск остатков двухшагового сценария.'
+        recorded_at: '2026-10-27T09:08:28Z'
+    notes: Передать в исполнение узкую переработку event subscriber вокруг сервисов OrderRegistration.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-27T09:08:28Z'
+    completed_at: '2026-10-27T09:09:14Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: 'WishboxRussianPostOrderRegistration сокращён до onRadicalMartAfterOrderSave -> RadicalMartOrderRegistrationService::register(); удалён двухшаговый CDEK-контур. Отчёт обновлён.'
+        recorded_at: '2026-10-27T09:09:14Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: PHP lint прошёл; статические проверки подтвердили существующую подписку и отсутствие DTO/UUID/PENDING/sync остатков.
+        recorded_at: '2026-10-27T09:09:14Z'
+    notes: Передать на фиксацию результат одношаговой интеграции и отчёт.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-27T09:09:14Z'
+    completed_at: '2026-10-27T09:09:17Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Целевой плагин использует одношаговый RadicalMartOrderRegistrationService и больше не содержит двухшаговой CDEK-модели.
+        recorded_at: '2026-10-27T09:09:17Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: Единственная задача реализована, отчёт и проверки зафиксированы.
+        recorded_at: '2026-10-27T09:09:17Z'
+    notes: Передать изменения на итоговый review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-27T09:09:17Z'
+    completed_at: '2026-10-27T09:09:25Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Проверены целевой файл и отчёт: вызов сервиса одношаговый, CDEK-события и промежуточное состояние удалены, PHP lint успешен.'
+        recorded_at: '2026-10-27T09:09:25Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: task-doctor и run-doctor --runtime-events прошли без ошибок.
+        recorded_at: '2026-10-27T09:09:25Z'
+    notes: Review принят; передать результат в summary и handoff.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-27T09:09:25Z'
+    completed_at: '2026-10-27T09:09:30Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Плагин регистрации RadicalMart переведён на одношаговый вызов сервиса Почты России; проверки успешны.
+        recorded_at: '2026-10-27T09:09:30Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Изменены целевой PHP-файл и обязательный PF-отчёт; дальнейших действий в scope не требуется.
+        recorded_at: '2026-10-27T09:09:30Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Финальный результат, проверки и область изменений зафиксированы.
+        recorded_at: '2026-10-27T09:09:30Z'
+    notes: 'Work завершён: одношаговая регистрация реализована через сервис OrderRegistration.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/wishboxrussianpostorderregistration-php-api.capsule.yaml
+  assignment_capsule_checksum: 'sha256:a000aaabedb08d447006fe9616d8be08aab9414e9cae3d2a51881ffd7651198b'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - '*.php'
+  - '*.xml'
+  - build.xml
+  - language/**
+  - com_*/**
+  - plg_*/**
+  - lib_*/**
+  - .pf/artifacts/order-registration-russianpost/**
+  - .pf/tmp/order-registration-russianpost/**
+allowed_files:
+  - plg_radicalmart_wishboxrussianpostorderregistration/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order.xml
+  - .pf/artifacts/order-registration-russianpost/**
+  - .pf/tmp/order-registration-russianpost/**
+required_outputs:
+  -
+    id: order-registration-russianpost-report
+    path: .pf/artifacts/order-registration-russianpost/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/order-registration-russianpost/report.md
+  language: ru
+  format: markdown
+coordination_requirements:
+  scope_predecessor:
+    run_id: garage-work-2
+    assignment_id: task-2
+    capsule_checksum: 'sha256:c9e315e72ca3cee8ab37ee3f0ca28ea555662a4eba68de2874ec47da0d076bfb'

@@ -1,0 +1,694 @@
+schema_version: 1
+kind: pf.work.cancellation
+work:
+  project_id: pkg-radicalmart-wishboxrussianpost
+  run_id: garage-russianpost-registration
+  assignment_id: russianpost-registration
+  context_id: russianpost-registration-capsule
+  capsule_checksum: 'sha256:d95f17d7d46e256f0e9d8e30def8bc984ea436847a061457a0de1b5dcad24588'
+reason: 'Superseded by operator clarification: add the mandatory Russian Post order-registration fields to the checkout form while preserving the current architecture.'
+evidence:
+  []
+cancelled_at: '2026-10-23T16:15:24Z'
+before_run:
+  schema_version: 1
+  id: garage-russianpost-registration
+  title: Унифицировать ключи регистрации заказа на russianpost_registration_* по уточнени
+  process: task-batch-execution
+  status: in_progress
+  created_at: '2026-10-23T16:11:01Z'
+  updated_at: '2026-10-23T16:12:02Z'
+  objective: Унифицировать ключи регистрации заказа на russianpost_registration_* по уточнению оператора
+  platform: ""
+  selected_specializations:
+    []
+  scope:
+    type: project
+    project_root: .
+  tasks:
+    -
+      id: russianpost-registration
+      assignment: .pf/assignments/russianpost-registration.yaml
+      status: in_progress
+      order: 1
+      blocking: true
+  final_artifacts:
+    []
+  events:
+    emitted:
+      - run.created
+      - process.stage.started
+  privacy:
+    public_safe: true
+  process_execution:
+    process_id: task-batch-execution
+    process_version: 1.0.0
+    process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+    process_source: 'catalog:task-batch-execution'
+    snapshot_id: ctx-20261023-155255-a6985b
+    snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+    definition:
+      schema_version: 1
+      id: task-batch-execution
+      name: Task Batch Execution
+      version: 1.0.0
+      status: active
+      description: Default single-agent process for one primary agent session to execute tasks sequentially inside one project/run with repeated work, debug, fix, review, and handoff iterations.
+      execution_mode: single_agent
+      required_capabilities:
+        - process_coordination
+        - repository_read
+        - reporting
+      hooks:
+        emit:
+          -
+            event: run.created
+            required: true
+          -
+            event: task.created
+            required: true
+          -
+            event: task.started
+            required: true
+          -
+            event: iteration.added
+            required: true
+          -
+            event: iteration.completed
+            required: true
+          -
+            event: task.completed
+            required: true
+          -
+            event: run.summary.created
+            required: true
+          -
+            event: run.completed
+            required: true
+        future_subscriptions:
+          -
+            event: task.completed
+            actions:
+              -
+                type: refresh_task_index
+          -
+            event: run.completed
+            actions:
+              -
+                type: create_handoff
+        tracking:
+          include:
+            - run_id
+            - task_id
+            - iteration_id
+            - process_id
+            - assignment_id
+            - artifact_refs
+            - actor
+            - status
+      roles:
+        -
+          id: run-coordinator
+          title: Run Coordinator
+          responsibility: Creates the run, keeps the task index coherent, and writes final summary and handoff.
+          kind: primary_agent
+          responsibilities:
+            - Creates the run, keeps the task index coherent, and writes final summary and handoff.
+        -
+          id: task-worker
+          title: Task Worker
+          responsibility: Executes task iterations and records results.
+          kind: worker_agent
+          responsibilities:
+            - Executes task iterations and records results.
+        -
+          id: reviewer
+          title: Reviewer
+          responsibility: Checks run consistency and residual risks before completion.
+          kind: primary_agent
+          responsibilities:
+            - Checks run consistency and residual risks before completion.
+      stages:
+        -
+          id: run-intake
+          title: Create or inspect run
+          description: Create the run or inspect an existing active run.
+          required_inputs:
+            []
+          produced_artifacts:
+            - run-record
+          required_role: run-coordinator
+          required_capabilities:
+            - process_coordination
+          allowed_tools:
+            - processforge-cli
+          entry_gates:
+            []
+          exit_gates:
+            - run-has-context
+          goal: Create the run or inspect an existing active run.
+          actor: primary_agent
+          gates:
+            - run-has-context
+        -
+          id: task-planning
+          title: Create or collect tasks
+          description: Create assignment-backed tasks and attach them to the run.
+          required_inputs:
+            - run-record
+          produced_artifacts:
+            - task-index
+          required_role: run-coordinator
+          required_capabilities:
+            - process_coordination
+          allowed_tools:
+            - processforge-cli
+          entry_gates:
+            - run-has-context
+          exit_gates:
+            - run-has-tasks
+          goal: Create assignment-backed tasks and attach them to the run.
+          actor: primary_agent
+          gates:
+            - run-has-tasks
+        -
+          id: task-execution-loop
+          title: Execute task iterations
+          description: Record work, debug, fix, review, test, research, handoff, or note iterations for each task.
+          required_inputs:
+            - task-index
+          produced_artifacts:
+            - task-iteration-log
+          required_role: task-worker
+          required_capabilities:
+            - repository_read
+          allowed_tools:
+            - processforge-cli
+            - test_runner
+          entry_gates:
+            - run-has-tasks
+          exit_gates:
+            - task-results-recorded
+          goal: Record work, debug, fix, review, test, research, handoff, or note iterations for each task.
+          actor: worker_agent
+          gates:
+            - task-results-recorded
+        -
+          id: task-result-fixation
+          title: Fix task results
+          description: Complete each task with a result summary or result artifact.
+          required_inputs:
+            - task-iteration-log
+          produced_artifacts:
+            - task-result
+          required_role: task-worker
+          required_capabilities:
+            - reporting
+          allowed_tools:
+            - processforge-cli
+          entry_gates:
+            - task-results-recorded
+          exit_gates:
+            - all-blocking-tasks-completed
+          goal: Complete each task with a result summary or result artifact.
+          actor: worker_agent
+          gates:
+            - all-blocking-tasks-completed
+        -
+          id: run-review
+          title: Review run results
+          description: Run run-doctor and task-doctor checks before final completion.
+          required_inputs:
+            - task-result
+          produced_artifacts:
+            - run-review
+          required_role: reviewer
+          required_capabilities:
+            - artifact_review
+          allowed_tools:
+            - processforge-cli
+          entry_gates:
+            - all-blocking-tasks-completed
+          exit_gates:
+            - run-doctor-passed
+          goal: Run run-doctor and task-doctor checks before final completion.
+          actor: primary_agent
+          gates:
+            - run-doctor-passed
+        -
+          id: run-summary
+          title: Create final run summary and handoff
+          description: Aggregate task results into a run summary and handoff.
+          required_inputs:
+            - run-review
+          produced_artifacts:
+            - run-summary
+            - run-handoff
+          required_role: run-coordinator
+          required_capabilities:
+            - reporting
+          allowed_tools:
+            - processforge-cli
+          entry_gates:
+            - run-doctor-passed
+          exit_gates:
+            - run-summary-created
+          goal: Aggregate task results into a run summary and handoff.
+          actor: primary_agent
+          gates:
+            - run-summary-created
+      artifact_definitions:
+        -
+          id: run-record
+          title: Run Record
+          owner_role: run-coordinator
+          template: run
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/run-record.md
+        -
+          id: task-index
+          title: Task Index
+          owner_role: run-coordinator
+          template: artifact-template
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/task-index.md
+        -
+          id: task-iteration-log
+          title: Task Iteration Log
+          owner_role: task-worker
+          template: iteration
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/task-iteration-log.md
+        -
+          id: task-result
+          title: Task Result
+          owner_role: task-worker
+          template: assignment-task
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/task-result.md
+        -
+          id: run-review
+          title: Run Review
+          owner_role: reviewer
+          template: review-template
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/run-review.md
+        -
+          id: run-summary
+          title: Run Summary
+          owner_role: run-coordinator
+          template: validation-report-template
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/run-summary.md
+        -
+          id: run-handoff
+          title: Run Handoff
+          owner_role: run-coordinator
+          template: handoff-template
+          lifecycle:
+            - draft
+            - ready_for_review
+            - approved
+          type: markdown
+          required: true
+          path_hint: .pf/artifacts/run-handoff.md
+      gates:
+        -
+          id: run-has-context
+          description: Run has title, objective, process id, and public-safe scope.
+          blocking: true
+          type: checklist
+          required: true
+        -
+          id: run-has-tasks
+          description: Run contains at least one assignment-backed task.
+          blocking: true
+          type: checklist
+          required: true
+        -
+          id: task-results-recorded
+          description: Each task has iterations and a result placeholder.
+          blocking: true
+          type: checklist
+          required: true
+        -
+          id: all-blocking-tasks-completed
+          description: All blocking tasks are done before run completion.
+          blocking: true
+          type: checklist
+          required: true
+        -
+          id: run-doctor-passed
+          description: run-doctor reports no failures.
+          blocking: true
+          type: checklist
+          required: true
+        -
+          id: run-summary-created
+          description: Run summary and handoff exist.
+          blocking: true
+          type: checklist
+          required: true
+      required_packages:
+        - process-forge-core
+      required_templates:
+        - run
+        - assignment-task
+        - iteration
+        - review-template
+        - handoff-template
+      allowed_tools:
+        - processforge-cli
+        - test_runner
+        - validator
+      forbidden_actions:
+        - create_background_runner
+        - claim_task_without_assignment_record
+        - write_private_absolute_paths_to_public_files
+      evolve:
+        enabled: true
+        mode: optional
+        timing: end_of_run
+        default_scope: project
+        candidate_targets:
+          - knowledge_package
+          - template_package
+          - process_definition
+          - delivery_profile
+          - project_rule
+          - workplace_rule
+          - platform_contract
+        extraction_hints:
+          - Split candidates when an observation contains project-specific and platform-general parts.
+          - Default to the narrowest safe scope and require evidence before parent-platform promotion.
+          - reusable rule
+          - missing knowledge
+          - template improvement
+          - regression check
+          - process improvement
+        candidate_targeting:
+          default_scope: project
+          require_applicability: true
+          require_target: true
+          default_to_narrowest_scope: true
+        required_outputs:
+          - evolution-report
+        privacy:
+          default_sensitivity: internal
+          export_requires_sanitization: true
+          allow_private_paths: false
+        apply_policy:
+          auto_apply_global: false
+          create_candidates_only: true
+      evolution_policy:
+        active_run_upgrade:
+          default: manual_only
+        protected_artifacts:
+          - run-summary
+          - run-handoff
+        safe_changes:
+          - add_optional_iteration_kind
+          - add_non_blocking_gate
+        blocked_changes:
+          - add_file_locks_to_mvp
+          - add_background_watcher_to_mvp
+        requires_approval:
+          - change_task_status_model
+      catalog:
+        classification: PUBLIC_STABLE
+        public_surface: true
+        strict_contract: true
+      public_surface: true
+      coordination_requirements:
+        mode: simple_allowed
+        director_inbox:
+          required: false
+          optional: false
+        error_workflow:
+          mode: none
+        simple_mode_behavior: disable_director_features
+      error_handling:
+        enabled: false
+        mode: none
+        fallback_if_no_director: needs_operator
+      responsibility_boundaries:
+        operator:
+          - Provides the objective, constraints, approvals, and final acceptance.
+        primary_agent:
+          - Executes the process stages, writes required artifacts, and runs gates.
+        director:
+          - Coordinates handoffs and leases only when the effective project mode requires Director.
+        inspector:
+          - Verifies runtime state, CLI gates, and worker proof artifacts when applicable.
+        worker:
+          - Works only from an assigned capsule and writes declared outputs.
+        cli_tools:
+          - Run deterministic ProcessForge checks and write machine-readable results.
+      subagent_policy:
+        allowed: false
+        require_reports: false
+        allowed_roles:
+          []
+      process_transitions:
+        []
+      stage_completion:
+        handoff_note_required: true
+      run_completion:
+        summary_required: true
+        handoff_artifact_required: true
+      process_pack:
+        package: process-forge-core
+        example_required: true
+      agent_prompt:
+        required: true
+    active_specializations:
+      []
+    selected_resource_ids:
+      - 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      - 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+    allowed_processes:
+      - task-batch-execution
+    assignment_capsule: .pf/contexts/assignment-capsules/russianpost-registration.capsule.yaml
+    assignment_capsule_checksum: 'sha256:d95f17d7d46e256f0e9d8e30def8bc984ea436847a061457a0de1b5dcad24588'
+before_assignment:
+  schema_version: 1
+  id: russianpost-registration
+  title: Унифицировать ключи регистрации заказа на russianpost_registration_* по уточнени
+  run_id: garage-russianpost-registration
+  process: task-batch-execution
+  status: in_progress
+  created_at: '2026-10-23T16:11:01Z'
+  updated_at: '2026-10-23T16:12:02Z'
+  objective: Унифицировать ключи регистрации заказа на russianpost_registration_* по уточнению оператора
+  platform: ""
+  selected_specializations:
+    []
+  order: 1
+  dependencies:
+    blocked_by:
+      []
+    blocks:
+      []
+  iterations:
+    []
+  result:
+    status: pending
+    summary: ""
+    artifacts:
+      []
+  execution_mode:
+    kind: implementation
+    code_changes_allowed: true
+    artifact_changes_allowed: true
+    requires_review: true
+  stage: run-summary
+  stage_status: in_progress
+  stage_execution:
+    started_at: '2026-10-23T16:12:02Z'
+    evidence:
+      []
+    notes: ""
+  stage_history:
+    -
+      stage_id: run-intake
+      status: completed
+      started_at: '2026-10-23T16:11:01Z'
+      completed_at: '2026-10-23T16:11:12Z'
+      outcome: completed
+      next_stage_id: task-planning
+      evidence:
+        -
+          kind: artifact
+          artifact_id: run-record
+          status: ready
+          summary: Created a governed successor Work for canonical russianpost_registration_* keys across the order handler and shipping form.
+          recorded_at: '2026-10-23T16:11:12Z'
+        -
+          kind: gate
+          gate_id: run-has-context
+          status: passed
+          summary: Fresh verified context and immutable scoped capsule are present and execution-ready.
+          recorded_at: '2026-10-23T16:11:12Z'
+      notes: Передать в планирование единый переход пяти ключей регистрации на russianpost_registration_*.
+    -
+      stage_id: task-planning
+      status: completed
+      started_at: '2026-10-23T16:11:12Z'
+      completed_at: '2026-10-23T16:11:20Z'
+      outcome: completed
+      next_stage_id: task-execution-loop
+      evidence:
+        -
+          kind: artifact
+          artifact_id: task-index
+          status: ready
+          summary: 'One implementation task: rename the five registration data keys in PHP constants and the matching XML form fields, then validate PHP, XML, and key consistency.'
+          recorded_at: '2026-10-23T16:11:20Z'
+        -
+          kind: gate
+          gate_id: run-has-tasks
+          status: passed
+          summary: The implementation and verification task is explicit, bounded, and executable within the capsule.
+          recorded_at: '2026-10-23T16:11:20Z'
+      notes: Передать в исполнение атомарное переименование пяти ключей без изменения API-вызовов и бизнес-логики.
+    -
+      stage_id: task-execution-loop
+      status: completed
+      started_at: '2026-10-23T16:11:20Z'
+      completed_at: '2026-10-23T16:11:46Z'
+      outcome: completed
+      next_stage_id: task-result-fixation
+      evidence:
+        -
+          kind: artifact
+          artifact_id: task-iteration-log
+          status: ready
+          summary: Renamed all five registration keys to russianpost_registration_* in the PHP constant map and matching XML form fields; PHP lint, XML parse, full-tree legacy-key search, and key-set comparison passed.
+          recorded_at: '2026-10-23T16:11:46Z'
+        -
+          kind: gate
+          gate_id: task-results-recorded
+          status: passed
+          summary: Implementation result and verification evidence are recorded in .pf/artifacts/order-registration-russianpost/report.md.
+          recorded_at: '2026-10-23T16:11:46Z'
+      notes: 'Передать на фиксацию: изменения ограничены пятью ключами, бизнес-логика регистрации не менялась.'
+    -
+      stage_id: task-result-fixation
+      status: completed
+      started_at: '2026-10-23T16:11:46Z'
+      completed_at: '2026-10-23T16:11:53Z'
+      outcome: completed
+      next_stage_id: run-review
+      evidence:
+        -
+          kind: artifact
+          artifact_id: task-result
+          status: ready
+          summary: Order-registration persistence and form display now consistently use russianpost_registration_* for request UUID, entity UUID, errors, warnings, and last request.
+          recorded_at: '2026-10-23T16:11:53Z'
+        -
+          kind: gate
+          gate_id: all-blocking-tasks-completed
+          status: passed
+          summary: The only blocking implementation task completed and all targeted static checks passed.
+          recorded_at: '2026-10-23T16:11:53Z'
+      notes: Передать на review реализацию и отчёт .pf/artifacts/order-registration-russianpost/report.md.
+    -
+      stage_id: run-review
+      status: completed
+      started_at: '2026-10-23T16:11:53Z'
+      completed_at: '2026-10-23T16:12:02Z'
+      outcome: completed
+      next_stage_id: run-summary
+      evidence:
+        -
+          kind: artifact
+          artifact_id: run-review
+          status: ready
+          summary: 'Reviewed the scoped PHP and XML changes: both sides expose the same five russianpost_registration_* keys, no legacy key remains, and no registration control flow changed.'
+          recorded_at: '2026-10-23T16:12:02Z'
+        -
+          kind: gate
+          gate_id: run-doctor-passed
+          status: passed
+          summary: ProcessForge run-doctor with runtime event checks passed all checks for garage-russianpost-registration.
+          recorded_at: '2026-10-23T16:12:02Z'
+      notes: Review принят; передать в summary реализацию, проверки и отчёт.
+  process_execution:
+    process_id: task-batch-execution
+    process_version: 1.0.0
+    process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+    snapshot_id: ctx-20261023-155255-a6985b
+    snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+    assignment_capsule: .pf/contexts/assignment-capsules/russianpost-registration.capsule.yaml
+    assignment_capsule_checksum: 'sha256:d95f17d7d46e256f0e9d8e30def8bc984ea436847a061457a0de1b5dcad24588'
+  allowed_actions:
+    - read
+    - write_artifact
+    - write_product
+  allowed_read_files:
+    - AGENTS.md
+    - .pf/AGENTS.md
+    - .pf/process-forge.yaml
+    - .pf/contexts/**
+    - .pf/assignments/**
+    - '*.php'
+    - '*.xml'
+    - build.xml
+    - language/**
+    - com_*/**
+    - plg_*/**
+    - lib_*/**
+    - .pf/artifacts/order-registration-russianpost/**
+    - .pf/tmp/order-registration-russianpost/**
+  allowed_files:
+    - plg_radicalmart_wishboxrussianpostorderregistration/**
+    - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order.xml
+    - .pf/artifacts/order-registration-russianpost/**
+    - .pf/tmp/order-registration-russianpost/**
+  required_outputs:
+    -
+      id: order-registration-russianpost-report
+      path: .pf/artifacts/order-registration-russianpost/report.md
+      type: markdown
+      required: true
+  expected_report:
+    artifact: .pf/artifacts/order-registration-russianpost/report.md
+    language: ru
+    format: markdown
+  coordination_requirements:
+    scope_predecessor:
+      run_id: garage-work-2
+      assignment_id: task-2
+      capsule_checksum: 'sha256:c9e315e72ca3cee8ab37ee3f0ca28ea555662a4eba68de2874ec47da0d076bfb'
+checksum: 'sha256:ae8a81baf517550271d52c2f8be5a5740e2b350f72b7212699e4d595abd7e3cc'

@@ -1,0 +1,231 @@
+schema_version: 1
+id: checkout-room-to-api-field-preparer-trait
+title: Добавить в checkout необязательное поле номера квартиры room_to по контракту API
+run_id: garage-checkout-room-to-api-field-preparer-trait
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T16:31:23Z'
+updated_at: '2026-10-23T16:32:22Z'
+objective: Добавить в checkout необязательное поле номера квартиры room_to по контракту API Почты России и отдельный field preparer trait
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: необязательное поле квартиры room_to добавлено и проверено.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T16:32:17Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Added optional room_to apartment field with localized labels, dedicated preparer trait, and checkout rendering; all validations passed.
+      recorded_at: '2026-10-23T16:32:22Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: The checkout now exposes shipping.room_to, corresponding to optional Russian Post API room-to.
+      recorded_at: '2026-10-23T16:32:22Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Final report and handoff are complete.
+      recorded_at: '2026-10-23T16:32:22Z'
+  notes: 'Work завершён: необязательное поле квартиры room_to добавлено и проверено.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T16:31:23Z'
+    completed_at: '2026-10-23T16:31:35Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped successor Work for optional Russian Post room_to checkout field and dedicated preparer trait.
+        recorded_at: '2026-10-23T16:31:35Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh ProcessForge context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-23T16:31:35Z'
+    notes: Передать в планирование room_to как необязательное поле API room-to.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T16:31:35Z'
+    completed_at: '2026-10-23T16:31:41Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Add optional room_to text field and bilingual label, create RoomToFieldPreparerTrait, wire it into CheckoutFormPreparer, render it beside house_to, and validate XML/PHP/INI coverage.
+        recorded_at: '2026-10-23T16:31:41Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded checkout room field task is ready for implementation.
+        recorded_at: '2026-10-23T16:31:41Z'
+    notes: Официальная спецификация описывает room-to как необязательную строку — номер помещения.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T16:31:41Z'
+    completed_at: '2026-10-23T16:32:05Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Added optional room_to field, bilingual labels, RoomToFieldPreparerTrait, CheckoutFormPreparer wiring, and layout rendering; XML, INI, wiring, and PHP syntax checks passed.
+        recorded_at: '2026-10-23T16:32:05Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/checkout-room-field/report.md.
+        recorded_at: '2026-10-23T16:32:05Z'
+    notes: Передать проверенное поле room_to на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T16:32:05Z'
+    completed_at: '2026-10-23T16:32:09Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Checkout now collects optional room_to apartment/room number through its own preparer trait and localized rendered field.
+        recorded_at: '2026-10-23T16:32:09Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped room_to task completed and all static checks passed.
+        recorded_at: '2026-10-23T16:32:09Z'
+    notes: Передать поле room_to и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T16:32:09Z'
+    completed_at: '2026-10-23T16:32:17Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Reviewed room_to against the official Russian Post order creation contract: room-to is an optional string for the room/apartment number; XML, localization, preparer, and layout wiring match that contract.'
+        recorded_at: '2026-10-23T16:32:17Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events passed all checks.
+        recorded_at: '2026-10-23T16:32:17Z'
+    notes: Review принят; передать поле квартиры в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T16:32:17Z'
+    completed_at: '2026-10-23T16:32:22Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Added optional room_to apartment field with localized labels, dedicated preparer trait, and checkout rendering; all validations passed.
+        recorded_at: '2026-10-23T16:32:22Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: The checkout now exposes shipping.room_to, corresponding to optional Russian Post API room-to.
+        recorded_at: '2026-10-23T16:32:22Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Final report and handoff are complete.
+        recorded_at: '2026-10-23T16:32:22Z'
+    notes: 'Work завершён: необязательное поле квартиры room_to добавлено и проверено.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/checkout-room-to-api-field-preparer-trait.capsule.yaml
+  assignment_capsule_checksum: 'sha256:acc207d069bf7dcba61f36c2b2ec680eef9e75bc20cd61326d1e3167ea11a82c'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/**
+  - .pf/artifacts/checkout-room-field/**
+  - .pf/tmp/checkout-room-field/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/checkout.xml
+  - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+  - .pf/artifacts/checkout-room-field/**
+  - .pf/tmp/checkout-room-field/**
+required_outputs:
+  -
+    id: checkout-room-field-report
+    path: .pf/artifacts/checkout-room-field/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/checkout-room-field/report.md
+  language: ru
+  format: markdown
+coordination_requirements:
+  scope_predecessor:
+    run_id: garage-checkout-field-preparer-traits
+    assignment_id: checkout-field-preparer-traits
+    capsule_checksum: 'sha256:b7f230d07d22283ac7cc1d8deee810ce2ff54795bcbf89ffca7b53d47c7e7a2b'

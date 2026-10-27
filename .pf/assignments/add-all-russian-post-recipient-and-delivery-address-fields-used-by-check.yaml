@@ -1,0 +1,224 @@
+schema_version: 1
+id: add-all-russian-post-recipient-and-delivery-address-fields-used-by-check
+title: 'Add all Russian Post recipient and delivery address fields used by checkout.xml '
+run_id: garage-add-all-russian-post-recipient-and-delivery-address-fields-used-b
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T16:52:31Z'
+updated_at: '2026-10-23T16:53:12Z'
+objective: Add all Russian Post recipient and delivery address fields used by checkout.xml to forms/radicalmart/personal.xml, preserving the personal form structure and matching field attributes.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: personal.xml синхронизирован с пользовательскими полями checkout.xml.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T16:53:08Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Added all seven Russian Post checkout user fields to personal.xml with matching labels, requiredness, and index reload behavior.
+      recorded_at: '2026-10-23T16:53:12Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: After deployment, the personal shipping form can collect recipient, postal index, region, locality, street, house, and apartment data.
+      recorded_at: '2026-10-23T16:53:12Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Implementation report, validation results, and handoff are complete.
+      recorded_at: '2026-10-23T16:53:12Z'
+  notes: 'Work завершён: personal.xml синхронизирован с пользовательскими полями checkout.xml.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T16:52:31Z'
+    completed_at: '2026-10-23T16:52:40Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped Work for synchronizing Russian Post personal and checkout form fields.
+        recorded_at: '2026-10-23T16:52:40Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-23T16:52:40Z'
+    notes: Передать синхронизацию personal.xml в планирование.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T16:52:40Z'
+    completed_at: '2026-10-23T16:52:43Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Add recipient_name, region_to, place_to, street_to, house_to, and room_to around the existing index_to field, matching checkout.xml attributes and personal form ungrouped structure.
+        recorded_at: '2026-10-23T16:52:43Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded personal.xml synchronization and validation task is ready.
+        recorded_at: '2026-10-23T16:52:43Z'
+    notes: 'Сохранить index_to onchange и обязательность: первые шесть полей required, room_to optional.'
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T16:52:43Z'
+    completed_at: '2026-10-23T16:52:57Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Added the six missing Russian Post user fields to personal.xml, preserving the existing index_to field and matching checkout field attributes.
+        recorded_at: '2026-10-23T16:52:57Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and XML parity checks are recorded in .pf/artifacts/russianpost-personal-fields/report.md.
+        recorded_at: '2026-10-23T16:52:57Z'
+    notes: Передать синхронизированную personal-форму на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T16:52:57Z'
+    completed_at: '2026-10-23T16:53:02Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: personal.xml now contains all seven Russian Post recipient and address fields used by checkout.xml, with matching requiredness.
+        recorded_at: '2026-10-23T16:53:02Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped personal form change completed and all XML/parity checks passed.
+        recorded_at: '2026-10-23T16:53:02Z'
+    notes: Передать personal.xml и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T16:53:02Z'
+    completed_at: '2026-10-23T16:53:08Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Confirmed personal.xml has exactly seven user fields, six required plus optional room_to, and every name is present in checkout.xml; both XML files are well-formed.
+        recorded_at: '2026-10-23T16:53:08Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events and task-doctor passed all checks.
+        recorded_at: '2026-10-23T16:53:08Z'
+    notes: Review принят; передать personal-форму в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T16:53:08Z'
+    completed_at: '2026-10-23T16:53:12Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Added all seven Russian Post checkout user fields to personal.xml with matching labels, requiredness, and index reload behavior.
+        recorded_at: '2026-10-23T16:53:12Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: After deployment, the personal shipping form can collect recipient, postal index, region, locality, street, house, and apartment data.
+        recorded_at: '2026-10-23T16:53:12Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Implementation report, validation results, and handoff are complete.
+        recorded_at: '2026-10-23T16:53:12Z'
+    notes: 'Work завершён: personal.xml синхронизирован с пользовательскими полями checkout.xml.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/add-all-russian-post-recipient-and-delivery-address-fields-used-by-check.capsule.yaml
+  assignment_capsule_checksum: 'sha256:a3bc457adc70daab711ded7c1004fb02eb4d66cb927ef76007c735137498cb70'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart_express/**
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  - .pf/artifacts/russianpost-personal-fields/**
+  - .pf/tmp/russianpost-personal-fields/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/personal.xml
+  - .pf/artifacts/russianpost-personal-fields/**
+  - .pf/tmp/russianpost-personal-fields/**
+required_outputs:
+  -
+    id: russianpost-personal-fields-report
+    path: .pf/artifacts/russianpost-personal-fields/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/russianpost-personal-fields/report.md
+  language: ru
+  format: markdown

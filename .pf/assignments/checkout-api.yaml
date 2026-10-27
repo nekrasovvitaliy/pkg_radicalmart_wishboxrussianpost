@@ -1,0 +1,238 @@
+schema_version: 1
+id: checkout-api
+title: Добавить в checkout обязательные пользовательские поля регистрации отправления п
+run_id: garage-checkout-api
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T16:15:40Z'
+updated_at: '2026-10-23T16:16:51Z'
+objective: Добавить в checkout обязательные пользовательские поля регистрации отправления по API Почты России, сохранив текущую архитектуру
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Work завершён; следующий безопасный шаг — подключить эти поля к DTO/JSON PUT /1.0/user/backlog в текущих service/data-provider слоях.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T16:16:43Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Added mandatory Russian Post recipient/address checkout inputs, bilingual labels, canonical russianpost registration keys, and removed scoped CDEK UI wording; all static validations passed.
+      recorded_at: '2026-10-23T16:16:51Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Registration payload mapping can now read shipping.recipient_name, index_to, region_to, place_to, street_to, and house_to without changing the existing form architecture.
+      recorded_at: '2026-10-23T16:16:51Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Final report and implementation handoff are complete.
+      recorded_at: '2026-10-23T16:16:51Z'
+  notes: Work завершён; следующий безопасный шаг — подключить эти поля к DTO/JSON PUT /1.0/user/backlog в текущих service/data-provider слоях.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T16:15:40Z'
+    completed_at: '2026-10-23T16:15:45Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Scoped successor Work created for mandatory Russian Post checkout registration fields and localized labels, preserving the existing form architecture.
+        recorded_at: '2026-10-23T16:15:45Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Verified ProcessForge context and immutable execution-ready capsule are present.
+        recorded_at: '2026-10-23T16:15:45Z'
+    notes: Передать в планирование обязательные поля получателя из официального контракта PUT /1.0/user/backlog.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T16:15:45Z'
+    completed_at: '2026-10-23T16:15:50Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Add required recipient_name, region_to, place_to, street_to, and house_to text fields alongside existing index_to; add English and Russian labels; validate XML and language keys.
+        recorded_at: '2026-10-23T16:15:50Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded form-and-localization task is ready for implementation.
+        recorded_at: '2026-10-23T16:15:50Z'
+    notes: Системные параметры API остаются в настройках и вычислениях; checkout получает только данные пользователя.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T16:15:50Z'
+    completed_at: '2026-10-23T16:16:30Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Added five required recipient/address inputs to checkout alongside index_to, added en-GB/ru-RU labels, and replaced remaining CDEK labels in the scoped registration UI. Checkout and order XML, PHP syntax, and INI parsing passed.
+        recorded_at: '2026-10-23T16:16:30Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/order-registration-checkout/report.md.
+        recorded_at: '2026-10-23T16:16:30Z'
+    notes: 'Передать на фиксацию: архитектура формы сохранена, системные поля API не показаны покупателю.'
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T16:16:30Z'
+    completed_at: '2026-10-23T16:16:35Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Checkout now collects recipient_name, index_to, region_to, place_to, street_to, and house_to as required Russian Post registration inputs, with bilingual labels.
+        recorded_at: '2026-10-23T16:16:35Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped form and localization task completed; XML, INI, PHP, and CDEK-residue checks passed.
+        recorded_at: '2026-10-23T16:16:35Z'
+    notes: Передать на review форму, локализации и отчёт.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T16:16:35Z'
+    completed_at: '2026-10-23T16:16:43Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Reviewed against the official Russian Post creation contract: buyer-entered recipient and domestic address fields are required; configured/calculated API fields remain outside checkout; current Joomla form architecture is unchanged.'
+        recorded_at: '2026-10-23T16:16:43Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events passed all checks for garage-checkout-api.
+        recorded_at: '2026-10-23T16:16:43Z'
+    notes: Review принят; передать проверенный результат в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T16:16:43Z'
+    completed_at: '2026-10-23T16:16:51Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Added mandatory Russian Post recipient/address checkout inputs, bilingual labels, canonical russianpost registration keys, and removed scoped CDEK UI wording; all static validations passed.
+        recorded_at: '2026-10-23T16:16:51Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Registration payload mapping can now read shipping.recipient_name, index_to, region_to, place_to, street_to, and house_to without changing the existing form architecture.
+        recorded_at: '2026-10-23T16:16:51Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Final report and implementation handoff are complete.
+        recorded_at: '2026-10-23T16:16:51Z'
+    notes: Work завершён; следующий безопасный шаг — подключить эти поля к DTO/JSON PUT /1.0/user/backlog в текущих service/data-provider слоях.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/checkout-api.capsule.yaml
+  assignment_capsule_checksum: 'sha256:4a67cc8a6b9cffe7aaf1c57848e616e3037c1df39aa24c75bb917806fdd8607f'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - '*.php'
+  - '*.xml'
+  - '*.ini'
+  - build.xml
+  - language/**
+  - com_*/**
+  - plg_*/**
+  - lib_*/**
+  - .pf/artifacts/order-registration-checkout/**
+  - .pf/tmp/order-registration-checkout/**
+allowed_files:
+  - plg_radicalmart_wishboxrussianpostorderregistration/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/checkout.xml
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order.xml
+  - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - .pf/artifacts/order-registration-checkout/**
+  - .pf/tmp/order-registration-checkout/**
+required_outputs:
+  -
+    id: order-registration-checkout-report
+    path: .pf/artifacts/order-registration-checkout/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/order-registration-checkout/report.md
+  language: ru
+  format: markdown
+coordination_requirements:
+  scope_predecessor:
+    run_id: garage-russianpost-registration
+    assignment_id: russianpost-registration
+    capsule_checksum: 'sha256:d95f17d7d46e256f0e9d8e30def8bc984ea436847a061457a0de1b5dcad24588'

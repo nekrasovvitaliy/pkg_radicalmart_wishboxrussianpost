@@ -1,0 +1,231 @@
+schema_version: 1
+id: required-not-required-hidden-checkout-preparer-traits-layout-standard-sh
+title: 'Добавить настройки required/not_required/hidden для полей checkout Почты России '
+run_id: garage-required-not-required-hidden-checkout-preparer-traits-layout-stan
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T16:36:10Z'
+updated_at: '2026-10-23T16:37:52Z'
+objective: Добавить настройки required/not_required/hidden для полей checkout Почты России и применять их в preparer traits и layout по образцу standard shipping
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: настройки field_* добавлены и применяются в traits и checkout layout.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T16:37:48Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Added standard-style required/not_required/hidden configuration for seven Russian Post checkout fields, with preparer enforcement and conditional layout rendering.
+      recorded_at: '2026-10-23T16:37:52Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Administrators can now control visibility and requiredness of each Russian Post checkout API field from shipping method settings.
+      recorded_at: '2026-10-23T16:37:52Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Final report and implementation handoff are complete.
+      recorded_at: '2026-10-23T16:37:52Z'
+  notes: 'Work завершён: настройки field_* добавлены и применяются в traits и checkout layout.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T16:36:10Z'
+    completed_at: '2026-10-23T16:36:23Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped Work for standard-style required/not_required/hidden settings on Russian Post checkout fields.
+        recorded_at: '2026-10-23T16:36:23Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh ProcessForge context and immutable execution-ready capsule verified.
+        recorded_at: '2026-10-23T16:36:23Z'
+    notes: Передать в планирование настройки семи API-полей, их preparer-логику и layout-проверки.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T16:36:23Z'
+    completed_at: '2026-10-23T16:36:28Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Add field_recipient_name, field_index_to, field_region_to, field_place_to, field_street_to, field_house_to, and field_room_to settings with required/not_required/hidden values; apply settings in each trait and layout; add bilingual option labels and validate.
+        recorded_at: '2026-10-23T16:36:28Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded method-form, preparer, layout, and localization task is ready.
+        recorded_at: '2026-10-23T16:36:28Z'
+    notes: 'Defaults preserve the API contract: first six fields required, room_to not_required.'
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T16:36:28Z'
+    completed_at: '2026-10-23T16:37:35Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Added seven standard-style field_* settings with required/not_required/hidden states, localized labels, shared preparer enforcement, trait wiring, and conditional checkout rendering. XML, INI, PHP, and coverage checks passed.
+        recorded_at: '2026-10-23T16:37:35Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/checkout-field-settings/report.md.
+        recorded_at: '2026-10-23T16:37:35Z'
+    notes: Передать настройки method form, preparer enforcement и layout checks на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T16:37:35Z'
+    completed_at: '2026-10-23T16:37:39Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Russian Post shipping method now controls all seven checkout API fields with required/not_required/hidden settings, enforced by preparers and respected by the layout.
+        recorded_at: '2026-10-23T16:37:39Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped settings task completed and all structural/static checks passed.
+        recorded_at: '2026-10-23T16:37:39Z'
+    notes: Передать настройки полей и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T16:37:39Z'
+    completed_at: '2026-10-23T16:37:48Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Compared with standard shipping behavior: all seven field settings expose required/not_required/hidden; preparers enforce required/removal and layout checks hidden with matching defaults. Static validation passed.'
+        recorded_at: '2026-10-23T16:37:48Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events passed all checks.
+        recorded_at: '2026-10-23T16:37:48Z'
+    notes: Review принят; передать настройки checkout-полей в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T16:37:48Z'
+    completed_at: '2026-10-23T16:37:52Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Added standard-style required/not_required/hidden configuration for seven Russian Post checkout fields, with preparer enforcement and conditional layout rendering.
+        recorded_at: '2026-10-23T16:37:52Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Administrators can now control visibility and requiredness of each Russian Post checkout API field from shipping method settings.
+        recorded_at: '2026-10-23T16:37:52Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Final report and implementation handoff are complete.
+        recorded_at: '2026-10-23T16:37:52Z'
+    notes: 'Work завершён: настройки field_* добавлены и применяются в traits и checkout layout.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/required-not-required-hidden-checkout-preparer-traits-layout-standard-sh.capsule.yaml
+  assignment_capsule_checksum: 'sha256:85dcbf09272d86fe078f7a626eaf7f36a779ad6cc24d0d7cc70d3713a240de95'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/**
+  - .pf/artifacts/checkout-field-settings/**
+  - .pf/tmp/checkout-field-settings/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+  - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+  - .pf/artifacts/checkout-field-settings/**
+  - .pf/tmp/checkout-field-settings/**
+required_outputs:
+  -
+    id: checkout-field-settings-report
+    path: .pf/artifacts/checkout-field-settings/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/checkout-field-settings/report.md
+  language: ru
+  format: markdown
+coordination_requirements:
+  scope_predecessor:
+    run_id: garage-checkout-room-to-api-field-preparer-trait
+    assignment_id: checkout-room-to-api-field-preparer-trait
+    capsule_checksum: 'sha256:acc207d069bf7dcba61f36c2b2ec680eef9e75bc20cd61326d1e3167ea11a82c'

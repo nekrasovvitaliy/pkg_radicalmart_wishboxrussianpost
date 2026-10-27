@@ -1,0 +1,226 @@
+schema_version: 1
+id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+title: 'Fix Russian Post shipping method admin field settings: remove legacy CDEK-style '
+run_id: garage-fix-russian-post-shipping-method-admin-field-settings-remove-lega
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T16:48:48Z'
+updated_at: '2026-10-23T16:49:50Z'
+objective: 'Fix Russian Post shipping method admin field settings: remove legacy CDEK-style Hide/Show field_* controls, expose the Russian Post checkout field controls in the settings tab, and retain required/not_required/hidden behavior consistent with the standard RadicalMart plugin.'
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: административные field_* настройки исправлены по образцу standard shipping.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T16:49:47Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Replaced the visible legacy Hide/Show settings block with seven Russian Post API field controls using required/not_required/hidden in the settings tab.
+      recorded_at: '2026-10-23T16:49:50Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: After deploying the updated plugin files, the shipping method editor will show three choices for each Russian Post checkout field, including apartment.
+      recorded_at: '2026-10-23T16:49:50Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Implementation report, validation results, and deployment handoff are complete.
+      recorded_at: '2026-10-23T16:49:50Z'
+  notes: 'Work завершён: административные field_* настройки исправлены по образцу standard shipping.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T16:48:48Z'
+    completed_at: '2026-10-23T16:49:00Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created explicitly scoped Work to correct Russian Post method field controls and remove legacy CDEK settings.
+        recorded_at: '2026-10-23T16:48:59Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-23T16:48:59Z'
+    notes: Передать исправление настроек полей в планирование.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T16:49:00Z'
+    completed_at: '2026-10-23T16:49:02Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Remove obsolete country/city/zip/street/house/building/entrance/floor/apartment/comment Hide/Show controls; expose Russian Post API field controls under the settings tab; validate XML and existing preparer/layout mappings.
+        recorded_at: '2026-10-23T16:49:02Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded method form correction and validation task is ready.
+        recorded_at: '2026-10-23T16:49:02Z'
+    notes: Сохранить текущую архитектуру preparer traits и checkout layout.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T16:49:02Z'
+    completed_at: '2026-10-23T16:49:33Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Removed ten legacy Hide/Show controls, moved seven Russian Post API field controls into settings_fields with tab=settings, and validated XML and mappings.
+        recorded_at: '2026-10-23T16:49:33Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/russianpost-field-settings-fix/report.md.
+        recorded_at: '2026-10-23T16:49:33Z'
+    notes: Передать исправленную административную форму на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T16:49:33Z'
+    completed_at: '2026-10-23T16:49:36Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: The method editor now exposes only seven Russian Post checkout field settings with required/not_required/hidden values in the settings tab.
+        recorded_at: '2026-10-23T16:49:36Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The bounded method XML correction is complete and static checks passed.
+        recorded_at: '2026-10-23T16:49:36Z'
+    notes: Передать исправление и отчёт на review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T16:49:36Z'
+    completed_at: '2026-10-23T16:49:47Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Confirmed the method form matches the standard settings fieldset pattern, contains seven Russian Post fields with all three states, has no legacy binary Hide/Show options, and remains aligned with preparers and checkout layout.
+        recorded_at: '2026-10-23T16:49:47Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events and task-doctor passed all checks.
+        recorded_at: '2026-10-23T16:49:47Z'
+    notes: Review принят; передать исправление в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T16:49:47Z'
+    completed_at: '2026-10-23T16:49:50Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Replaced the visible legacy Hide/Show settings block with seven Russian Post API field controls using required/not_required/hidden in the settings tab.
+        recorded_at: '2026-10-23T16:49:50Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: After deploying the updated plugin files, the shipping method editor will show three choices for each Russian Post checkout field, including apartment.
+        recorded_at: '2026-10-23T16:49:50Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Implementation report, validation results, and deployment handoff are complete.
+        recorded_at: '2026-10-23T16:49:50Z'
+    notes: 'Work завершён: административные field_* настройки исправлены по образцу standard shipping.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek.capsule.yaml
+  assignment_capsule_checksum: 'sha256:200d51b4a2a050884ab910a83ee2bf7cf32c3b75cac8ba72e63627ae8a35db57'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/**
+  - .pf/artifacts/russianpost-field-settings-fix/**
+  - .pf/tmp/russianpost-field-settings-fix/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+  - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+  - .pf/artifacts/russianpost-field-settings-fix/**
+  - .pf/tmp/russianpost-field-settings-fix/**
+required_outputs:
+  -
+    id: russianpost-field-settings-fix-report
+    path: .pf/artifacts/russianpost-field-settings-fix/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/russianpost-field-settings-fix/report.md
+  language: ru
+  format: markdown

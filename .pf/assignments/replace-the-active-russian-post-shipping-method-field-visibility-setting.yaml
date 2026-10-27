@@ -1,0 +1,47 @@
+schema_version: 1
+id: replace-the-active-russian-post-shipping-method-field-visibility-setting
+title: Replace the active Russian Post shipping method field_* visibility settings with
+run_id: garage-replace-the-active-russian-post-shipping-method-field-visibility
+process: task-batch-execution
+status: in_progress
+created_at: '2026-10-23T16:48:24Z'
+updated_at: '2026-10-23T16:48:24Z'
+objective: Replace the active Russian Post shipping method field_* visibility settings with required/not_required/hidden options matching the standard RadicalMart shipping plugin, remove duplicate settings, and keep checkout preparation and layout behavior consistent.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: pending
+  summary: ""
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-intake
+stage_status: in_progress
+stage_execution:
+  started_at: '2026-10-23T16:48:24Z'
+  evidence:
+    []
+  notes: ""
+stage_history:
+  []
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/replace-the-active-russian-post-shipping-method-field-visibility-setting.capsule.yaml
+  assignment_capsule_checksum: 'sha256:8caba37c4b24950b9aaec58e9384c38f3f3c46ac6b95d37cdfb8c88957ce7c84'

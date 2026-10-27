@@ -1,0 +1,222 @@
+schema_version: 1
+id: di-provider-constructor
+title: Проверить DI provider плагина регистрации заказа Почты России на соответствие те
+run_id: garage-di-provider-constructor
+process: task-batch-execution
+status: done
+created_at: '2026-10-27T09:15:28Z'
+updated_at: '2026-10-27T09:16:01Z'
+objective: Проверить DI provider плагина регистрации заказа Почты России на соответствие текущим сервисам и constructor-контрактам.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Read-only provider review завершён.
+  artifacts:
+    []
+execution_mode:
+  kind: analysis
+  code_changes_allowed: false
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-27T09:16:01Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Provider синтаксически валиден, но runtime сломан отсутствующим custom service provider и регистрацией orchestration service.
+      recorded_at: '2026-10-27T09:16:01Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: 'Для исправления нужен implementation Work: добавить custom provider либо зарегистрировать сервис непосредственно в services/provider.php.'
+      recorded_at: '2026-10-27T09:16:01Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Review результат и рекомендации зафиксированы.
+      recorded_at: '2026-10-27T09:16:01Z'
+  notes: Read-only provider review завершён.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-27T09:15:28Z'
+    completed_at: '2026-10-27T09:15:32Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Создан read-only Work для проверки DI provider.
+        recorded_at: '2026-10-27T09:15:32Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Свежий контекст и read-only scope готовы.
+        recorded_at: '2026-10-27T09:15:32Z'
+    notes: Передать в планирование проверки imports, registrations и constructor wiring.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-27T09:15:32Z'
+    completed_at: '2026-10-27T09:15:32Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Проверить provider.php, доступность импортируемых custom providers, constructor wiring и передачу зависимостей в plugin.
+        recorded_at: '2026-10-27T09:15:32Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: Одна review-задача без изменений product-кода.
+        recorded_at: '2026-10-27T09:15:32Z'
+    notes: Передать provider review в execution.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-27T09:15:32Z'
+    completed_at: '2026-10-27T09:15:56Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Provider review выявил отсутствующий RadicalMartOrderRegistrationProvider и, как следствие, отсутствие регистрации RadicalMartOrderRegistrationService в контейнере.
+        recorded_at: '2026-10-27T09:15:55Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Проверены imports, фактические файлы библиотеки, constructor сервиса, plugin lookup и PHP lint.
+        recorded_at: '2026-10-27T09:15:55Z'
+    notes: Передать findings на фиксацию.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-27T09:15:56Z'
+    completed_at: '2026-10-27T09:15:56Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Review отчёт содержит две критические DI-проблемы и рекомендации по constructor/setter wiring.
+        recorded_at: '2026-10-27T09:15:56Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: Read-only review завершён, product-код не изменялся.
+        recorded_at: '2026-10-27T09:15:56Z'
+    notes: Передать отчёт на итоговый review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-27T09:15:56Z'
+    completed_at: '2026-10-27T09:16:01Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Findings перепроверены по provider, service constructor, aware trait и plugin usage; критичность DI failure подтверждена.
+        recorded_at: '2026-10-27T09:16:01Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: task-doctor и run-doctor --runtime-events прошли.
+        recorded_at: '2026-10-27T09:16:01Z'
+    notes: Передать review findings в summary.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-27T09:16:01Z'
+    completed_at: '2026-10-27T09:16:01Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Provider синтаксически валиден, но runtime сломан отсутствующим custom service provider и регистрацией orchestration service.
+        recorded_at: '2026-10-27T09:16:01Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: 'Для исправления нужен implementation Work: добавить custom provider либо зарегистрировать сервис непосредственно в services/provider.php.'
+        recorded_at: '2026-10-27T09:16:01Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Review результат и рекомендации зафиксированы.
+        recorded_at: '2026-10-27T09:16:01Z'
+    notes: Read-only provider review завершён.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/di-provider-constructor.capsule.yaml
+  assignment_capsule_checksum: 'sha256:6371d1c3fc762186df8a1008eddeabdbcaefea00725af85ceeb12ff538340980'
+allowed_actions:
+  - read
+  - write_artifact
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_wishboxrussianpostorderregistration/services/provider.php
+  - plg_radicalmart_wishboxrussianpostorderregistration/src/**
+  - lib_wishboxradicalmartrussianpostorderregistration/src/**
+  - .pf/artifacts/provider-review/**
+  - .pf/tmp/provider-review/**
+allowed_files:
+  - .pf/artifacts/provider-review/**
+  - .pf/tmp/provider-review/**
+required_outputs:
+  -
+    id: provider-review-report
+    path: .pf/artifacts/provider-review/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/provider-review/report.md
+  language: ru
+  format: markdown

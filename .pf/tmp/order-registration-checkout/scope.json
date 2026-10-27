@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "*.php",
+      "*.xml",
+      "*.ini",
+      "build.xml",
+      "language/**",
+      "com_*/**",
+      "plg_*/**",
+      "lib_*/**",
+      ".pf/artifacts/order-registration-checkout/**",
+      ".pf/tmp/order-registration-checkout/**"
+    ],
+    "allowed_files": [
+      "plg_radicalmart_wishboxrussianpostorderregistration/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/checkout.xml",
+      "plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order.xml",
+      "plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini",
+      "plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini",
+      ".pf/artifacts/order-registration-checkout/**",
+      ".pf/tmp/order-registration-checkout/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "order-registration-checkout-report",
+        "path": ".pf/artifacts/order-registration-checkout/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/order-registration-checkout/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  },
+  "predecessor": {
+    "run_id": "garage-russianpost-registration",
+    "assignment_id": "russianpost-registration",
+    "capsule_checksum": "sha256:d95f17d7d46e256f0e9d8e30def8bc984ea436847a061457a0de1b5dcad24588"
+  }
+}

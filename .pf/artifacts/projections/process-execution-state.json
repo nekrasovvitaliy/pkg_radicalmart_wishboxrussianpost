@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-10-27T09:30:22Z",
+  "kind": "process-execution-state",
+  "schema_version": 1,
+  "source": {
+    "authority": "run+assignment+pinned-process"
+  },
+  "state": {
+    "action": "run_completed",
+    "allowed_outcomes": [
+      {
+        "id": "completed",
+        "next_stage": "",
+        "title": "completed"
+      }
+    ],
+    "artifacts": [
+      {
+        "evidence": {
+          "artifact_id": "run-summary",
+          "kind": "artifact",
+          "recorded_at": "2026-10-27T09:30:22Z",
+          "status": "ready",
+          "summary": "Дублирующий setShippingDataValue удалён из плагина, используется общий WishboxRadicalMart OrderService."
+        },
+        "id": "run-summary",
+        "kind": "artifact",
+        "satisfied": true
+      },
+      {
+        "evidence": {
+          "artifact_id": "run-handoff",
+          "kind": "artifact",
+          "recorded_at": "2026-10-27T09:30:22Z",
+          "status": "ready",
+          "summary": "Плагин сохранил единственную сервисную зависимость RadicalMartOrderRegistrationService; транзитивный OrderService скрыт за library provider."
+        },
+        "id": "run-handoff",
+        "kind": "artifact",
+        "satisfied": true
+      }
+    ],
+    "assignment": {
+      "id": "setshippingdatavalue-wishboxradicalmart-orderservice-radicalmartorderreg",
+      "status": "done"
+    },
+    "blockers": [],
+    "completion": {
+      "requirements": [],
+      "status": "complete"
+    },
+    "context": {
+      "checksum": "sha256:b613947414c301ce82b2442621e5c288a1b96305221d800fe4d5f3226bac8572",
+      "id": "setshippingdatavalue-wishboxradicalmart-orderservice-radicalmartorderreg-capsule",
+      "identity_source": "assignment_process_pin",
+      "validation": {
+        "assignment_intent_checksum": "sha256:e6cec65d933bbf77f48ca02a8bb0b2eced50ec794b8507ed1ba658fb7edbe9a8",
+        "contract_version": 1,
+        "readiness": {
+          "blockers": [],
+          "status": "ready"
+        },
+        "stage_view": {
+          "id": "run-summary",
+          "parameters": {},
+          "produced_artifacts": [
+            "run-summary",
+            "run-handoff"
+          ],
+          "required_capabilities": [
+            "reporting"
+          ],
+          "required_inputs": [
+            "run-review"
+          ]
+        },
+        "status": "valid"
+      }
+    },
+    "evidence": [
+      {
+        "artifact_id": "run-summary",
+        "kind": "artifact",
+        "recorded_at": "2026-10-27T09:30:22Z",
+        "status": "ready",
+        "summary": "Дублирующий setShippingDataValue удалён из плагина, используется общий WishboxRadicalMart OrderService."
+      },
+      {
+        "artifact_id": "run-handoff",
+        "kind": "artifact",
+        "recorded_at": "2026-10-27T09:30:22Z",
+        "status": "ready",
+        "summary": "Плагин сохранил единственную сервисную зависимость RadicalMartOrderRegistrationService; транзитивный OrderService скрыт за library provider."
+      },
+      {
+        "gate_id": "run-summary-created",
+        "kind": "gate",
+        "recorded_at": "2026-10-27T09:30:22Z",
+        "status": "passed",
+        "summary": "Итоговый отчёт создан, проверки успешны."
+      }
+    ],
+    "execution_readiness": {
+      "allowed_actions": [
+        "read",
+        "write_artifact",
+        "write_product"
+      ],
+      "allowed_files": [
+        ".pf/artifacts/order-service-shipping-data/**",
+        ".pf/tmp/order-service-shipping-data/**",
+        "lib_wishboxradicalmartrussianpostorderregistration/src/OrderRegistration/RadicalMartOrderRegistrationService.php",
+        "lib_wishboxradicalmartrussianpostorderregistration/src/Service/Provider/RadicalMartOrderRegistration.php",
+        "plg_radicalmart_wishboxrussianpostorderregistration/src/Extension/WishboxRussianPostOrderRegistration.php"
+      ],
+      "allowed_read_files": [
+        ".pf/AGENTS.md",
+        ".pf/artifacts/order-service-shipping-data/**",
+        ".pf/assignments/**",
+        ".pf/contexts/**",
+        ".pf/process-forge.yaml",
+        ".pf/tmp/order-service-shipping-data/**",
+        "AGENTS.md",
+        "lib_wishboxradicalmartrussianpostorderregistration/**",
+        "plg_radicalmart_wishboxrussianpostorderregistration/**"
+      ],
+      "blockers": [],
+      "remediation": "none",
+      "status": "ready"
+    },
+    "gates": {
+      "entry": [
+        {
+          "blocking": true,
+          "evidence": {
+            "gate_id": "run-doctor-passed",
+            "kind": "gate",
+            "recorded_at": "2026-10-27T09:30:18Z",
+            "status": "passed",
+            "summary": "task-doctor и run-doctor завершились PASS."
+          },
+          "id": "run-doctor-passed",
+          "phase": "entry",
+          "required": true,
+          "satisfied": true,
+          "type": "checklist"
+        }
+      ],
+      "exit": [
+        {
+          "blocking": true,
+          "evidence": {
+            "gate_id": "run-summary-created",
+            "kind": "gate",
+            "recorded_at": "2026-10-27T09:30:22Z",
+            "status": "passed",
+            "summary": "Итоговый отчёт создан, проверки успешны."
+          },
+          "id": "run-summary-created",
+          "phase": "exit",
+          "required": true,
+          "satisfied": true,
+          "type": "checklist"
+        }
+      ]
+    },
+    "incomplete": [],
+    "kind": "pf.work.state",
+    "obligations": [],
+    "process": {
+      "fingerprint": "sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2",
+      "id": "task-batch-execution",
+      "pin_status": "pinned",
+      "version": "1.0.0"
+    },
+    "project": {
+      "id": "pkg-radicalmart-wishboxrussianpost"
+    },
+    "required_evidence": [],
+    "required_inputs": [
+      {
+        "evidence": {
+          "artifact_id": "run-review",
+          "kind": "artifact",
+          "recorded_at": "2026-10-27T09:30:18Z",
+          "status": "ready",
+          "summary": "Проверено: plugin-класс не содержит setter/MVC persistence; OrderService внедрён в library orchestration; provider регистрирует зависимость; PHP lint успешен."
+        },
+        "id": "run-review",
+        "kind": "input",
+        "satisfied": true
+      }
+    ],
+    "run": {
+      "id": "garage-setshippingdatavalue-wishboxradicalmart-orderservice-radicalmarto",
+      "status": "completed"
+    },
+    "schema_version": 1,
+    "stage": {
+      "id": "run-summary",
+      "status": "completed",
+      "title": "Create final run summary and handoff"
+    },
+    "work": {
+      "active_specializations": [],
+      "selected_resource_ids": [
+        "project.pkg-radicalmart-wishboxrussianpost:project-artifacts",
+        "project.pkg-radicalmart-wishboxrussianpost:project-profile"
+      ]
+    }
+  }
+}

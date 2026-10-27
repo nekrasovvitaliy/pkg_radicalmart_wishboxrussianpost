@@ -1,0 +1,9 @@
+node_modules
+.codex/hooks.json
+.pf/process-forge.local.yaml
+.pf/runtime/
+.pf/private-notes/
+.pf/cache/
+.secrets/
+*.tmp
+*.bak

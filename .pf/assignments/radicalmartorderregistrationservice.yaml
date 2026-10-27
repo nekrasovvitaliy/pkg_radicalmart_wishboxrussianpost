@@ -1,0 +1,223 @@
+schema_version: 1
+id: radicalmartorderregistrationservice
+title: Сделать RadicalMartOrderRegistrationService тонким оркестратором одношаговой рег
+run_id: garage-radicalmartorderregistrationservice
+process: task-batch-execution
+status: done
+created_at: '2026-10-27T09:09:59Z'
+updated_at: '2026-10-27T09:11:07Z'
+objective: Сделать RadicalMartOrderRegistrationService тонким оркестратором одношаговой регистрации заказа Почты России.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Текущий Work завершён на границе immutable capsule.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-27T09:11:07Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Тонкий оркестратор подготовлен в пределах project scope; требуется successor-сверка с pkg_wishboxrussianpost.
+      recorded_at: '2026-10-27T09:11:07Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Successor должен использовать sibling reference package, названный оператором.
+      recorded_at: '2026-10-27T09:11:07Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Результат и необходимость successor Work зафиксированы.
+      recorded_at: '2026-10-27T09:11:07Z'
+  notes: Текущий Work завершён на границе immutable capsule.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-27T09:09:59Z'
+    completed_at: '2026-10-27T09:10:14Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Создан Work для узкого рефакторинга RadicalMartOrderRegistrationService.
+        recorded_at: '2026-10-27T09:10:14Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Контекст свежий; capsule разрешает изменение только целевого сервиса и отчёта.
+        recorded_at: '2026-10-27T09:10:14Z'
+    notes: Передать в планирование тонкий одношаговый orchestration flow.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-27T09:10:14Z'
+    completed_at: '2026-10-27T09:10:14Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: 'Исправить namespace/import на RussianPost, удалить batch/order-provider API и оставить policy -> data provider -> OrderRegistrationService::register().'
+        recorded_at: '2026-10-27T09:10:14Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: Одна атомарная задача в одном PHP-файле; проверки PHP lint и поиск CDEK/batch остатков.
+        recorded_at: '2026-10-27T09:10:14Z'
+    notes: Передать рефакторинг в execution.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-27T09:10:14Z'
+    completed_at: '2026-10-27T09:10:45Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: 'Сервис сокращён до policy, создания data provider и одного вызова OrderRegistrationService::register(); исправлены namespace/import.'
+        recorded_at: '2026-10-27T09:10:45Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: PHP lint успешен; CDEK, batch, registerByIds, getDataProviders и canUpdate отсутствуют.
+        recorded_at: '2026-10-27T09:10:45Z'
+    notes: Передать тонкий orchestrator на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-27T09:10:45Z'
+    completed_at: '2026-10-27T09:10:46Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: RadicalMartOrderRegistrationService реализует только одношаговую оркестрацию регистрации Почты России.
+        recorded_at: '2026-10-27T09:10:46Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: Целевой файл и обязательный отчёт готовы.
+        recorded_at: '2026-10-27T09:10:46Z'
+    notes: Передать реализацию на review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-27T09:10:46Z'
+    completed_at: '2026-10-27T09:11:07Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Внутрипроектный thin-orchestrator refactor проверен; внешний контракт будет уточнён отдельным successor Work.
+        recorded_at: '2026-10-27T09:11:07Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: task-doctor и run-doctor прошли.
+        recorded_at: '2026-10-27T09:11:07Z'
+    notes: Завершить текущий immutable scope; создать successor для внешнего reference package.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-27T09:11:07Z'
+    completed_at: '2026-10-27T09:11:07Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Тонкий оркестратор подготовлен в пределах project scope; требуется successor-сверка с pkg_wishboxrussianpost.
+        recorded_at: '2026-10-27T09:11:07Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Successor должен использовать sibling reference package, названный оператором.
+        recorded_at: '2026-10-27T09:11:07Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Результат и необходимость successor Work зафиксированы.
+        recorded_at: '2026-10-27T09:11:07Z'
+    notes: Текущий Work завершён на границе immutable capsule.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/radicalmartorderregistrationservice.capsule.yaml
+  assignment_capsule_checksum: 'sha256:3383aaf3136535ab7431b0eeaa1c0c60a43e9b359b274f8d4c077ee96ffd477d'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - lib_wishboxradicalmartrussianpostorderregistration/**
+  - plg_radicalmart_wishboxrussianpostorderregistration/**
+  - .pf/artifacts/order-registration-orchestrator/**
+  - .pf/tmp/order-registration-orchestrator/**
+allowed_files:
+  - lib_wishboxradicalmartrussianpostorderregistration/src/OrderRegistration/RadicalMartOrderRegistrationService.php
+  - .pf/artifacts/order-registration-orchestrator/**
+  - .pf/tmp/order-registration-orchestrator/**
+required_outputs:
+  -
+    id: order-registration-orchestrator-report
+    path: .pf/artifacts/order-registration-orchestrator/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/order-registration-orchestrator/report.md
+  language: ru
+  format: markdown

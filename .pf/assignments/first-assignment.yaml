@@ -1,0 +1,23 @@
+schema_version: 1
+id: first-assignment
+title: Verify ProcessForge project onboarding
+run_id: project-onboarding-pkg-radicalmart-wishboxrussianpost
+process: project-onboarding
+status: open
+objective: Verify that this project is connected to ProcessForge and ready for future assignment work.
+iterations:
+  []
+result:
+  status: pending
+  summary: ""
+  artifacts:
+    []
+tasks:
+  - Read root AGENTS.md (or .pf/AGENTS.md in an unmigrated project)
+  - Inspect the current project through pf.context
+  - Use pf.search or pf.resolve when project knowledge is needed
+  - Use pf.work.start for substantive governed work
+  - Confirm the first working process for this project
+  - Create .pf/artifacts/first-assignment-readiness-note.md
+expected_artifacts:
+  - .pf/artifacts/first-assignment-readiness-note.md

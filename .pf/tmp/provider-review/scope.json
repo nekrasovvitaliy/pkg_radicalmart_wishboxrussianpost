@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "plg_radicalmart_wishboxrussianpostorderregistration/services/provider.php",
+      "plg_radicalmart_wishboxrussianpostorderregistration/src/**",
+      "lib_wishboxradicalmartrussianpostorderregistration/src/**",
+      ".pf/artifacts/provider-review/**",
+      ".pf/tmp/provider-review/**"
+    ],
+    "allowed_files": [
+      ".pf/artifacts/provider-review/**",
+      ".pf/tmp/provider-review/**"
+    ],
+    "execution_mode": {
+      "kind": "analysis",
+      "code_changes_allowed": false,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "provider-review-report",
+        "path": ".pf/artifacts/provider-review/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/provider-review/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  }
+}

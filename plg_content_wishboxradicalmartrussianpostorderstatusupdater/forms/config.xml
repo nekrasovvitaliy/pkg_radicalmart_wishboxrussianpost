@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            label="PLG_CONTENT_WISHBOXRADICALMARTRUSSIANPOSTORDERSTATUSUPDATER_FIELDSET_LABEL"
+            name="wishboxradicalmartrussianpostorderstatusupdater"
+            addfieldprefix="Joomla\Component\Wishboxradicalmartrussianpost\Administrator\Field"
+    >
+        <fields name="wishboxradicalmartrussianpostorderstatusupdater">
+
+                <field
+                        name="statuses"
+                        type="subform"
+                        label="PLG_CONTENT_WISHBOXRADICALMARTRUSSIANPOSTORDERSTATUSUPDATER_FIELD_STATUSES_LABEL"
+                        buttons="add,remove,move"
+                        multiple="true"
+                        min="0"
+                        layout="joomla.form.field.subform.repeatable-table"
+                        hiddenLabel="true"
+                >
+                    <form>
+                        <fieldset>
+                            <field name="old_status_id"
+                                   type="Statuses"
+                                   label="PLG_CONTENT_WISHBOXRADICALMARTRUSSIANPOSTORDERSTATUSUPDATER_FIELD_OLD_STATUS_LABEL"
+                                   required="true"
+                                   addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field"
+                            />
+
+                            <field name="wishboxrussianpost_status_code"
+                                   type="WishboxRussianPostStatus"
+                                   label="PLG_CONTENT_WISHBOXRADICALMARTRUSSIANPOSTORDERSTATUSUPDATER_FIELD_RUSSIANPOST_STATUS_LABEL"
+                                   required="true"
+                                   addfieldprefix="Joomla\Component\WishboxRussianPost\Administrator\Field"
+                            />
+
+                            <field name="new_status_id"
+                                   type="Statuses"
+                                   label="PLG_CONTENT_WISHBOXRADICALMARTRUSSIANPOSTORDERSTATUSUPDATER_FIELD_NEW_STATUS_LABEL"
+                                   required="true"
+                                   addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field"
+                            />
+
+                        </fieldset>
+                    </form>
+                </field>
+
+        </fields>
+    </fieldset>
+</form>

@@ -1,0 +1,977 @@
+schema_version: 1
+capsule:
+  id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek-capsule
+  generated_at: '2026-10-23T16:48:48Z'
+  assignment_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+  assignment_path: .pf/assignments/fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek.yaml
+  immutable: true
+  worker_may_rebuild_context: false
+context_snapshot:
+  id: ctx-20261023-155255-a6985b
+  sha256: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  freshness_at_creation: fresh
+assignment:
+  id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+  run_id: garage-fix-russian-post-shipping-method-admin-field-settings-remove-lega
+  path: .pf/assignments/fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek.yaml
+  status: in_progress
+  objective: 'Fix Russian Post shipping method admin field settings: remove legacy CDEK-style Hide/Show field_* controls, expose the Russian Post checkout field controls in the settings tab, and retain required/not_required/hidden behavior consistent with the standard RadicalMart plugin.'
+  execution_mode:
+    kind: implementation
+    code_changes_allowed: true
+    artifact_changes_allowed: true
+    requires_review: true
+  stage: run-intake
+context:
+  required_sources:
+    - .pf/contexts/project-context.snapshot.yaml
+    - .pf/assignments/fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek.yaml
+  context_artifacts:
+    []
+  snapshot_id: ctx-20261023-155255-a6985b
+  selected_resource_ids:
+    - 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+    - 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+  parameter_sources:
+    []
+  freshness: fresh
+  selected_specializations:
+    []
+  applied_project_overrides:
+    []
+scope:
+  allowed_files:
+    - .pf/artifacts/russianpost-field-settings-fix/**
+    - .pf/tmp/russianpost-field-settings-fix/**
+    - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+    - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+    - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+    - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+    - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  allowed_read_files:
+    - .pf/AGENTS.md
+    - .pf/artifacts/russianpost-field-settings-fix/**
+    - .pf/assignments/**
+    - .pf/contexts/**
+    - .pf/process-forge.yaml
+    - .pf/tmp/russianpost-field-settings-fix/**
+    - AGENTS.md
+    - plg_radicalmart_shipping_wishboxrussianpost/**
+  forbidden_files:
+    []
+  allowed_actions:
+    - read
+    - write_artifact
+    - write_product
+  forbidden_actions:
+    []
+  ownership:
+    owner_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+    owner_label: worker-fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+    role: ""
+    writer: true
+    owned_files:
+      - .pf/artifacts/russianpost-field-settings-fix/**
+      - .pf/tmp/russianpost-field-settings-fix/**
+      - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+      - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+      - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+    owned_globs:
+      []
+  non_overlap:
+    policy: block_on_write_overlap
+    active_parallel_tasks:
+      []
+    current_write_scope:
+      - .pf/artifacts/russianpost-field-settings-fix/**
+      - .pf/tmp/russianpost-field-settings-fix/**
+      - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+      - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+      - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+outputs:
+  required_outputs:
+    -
+      id: russianpost-field-settings-fix-report
+      path: .pf/artifacts/russianpost-field-settings-fix/report.md
+      type: markdown
+      required: true
+  expected_report:
+    artifact: .pf/artifacts/russianpost-field-settings-fix/report.md
+    language: ru
+    format: markdown
+workspace_access:
+  knowledge_resources:
+    []
+  templates:
+    []
+  tools:
+    []
+  mcp:
+    []
+agent_model: ""
+agent_reasoning_effort: ""
+subagent_policy:
+  allow: false
+  max_subagents: 0
+  allowed_roles:
+    []
+  require_reports: false
+  reports_dir: ""
+execution_contract:
+  contract_version: 1
+  identity:
+    kind: work
+    project_id: pkg-radicalmart-wishboxrussianpost
+    run_id: garage-fix-russian-post-shipping-method-admin-field-settings-remove-lega
+    assignment_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+    context_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek-capsule
+  assignment_intent:
+    objective: 'Fix Russian Post shipping method admin field settings: remove legacy CDEK-style Hide/Show field_* controls, expose the Russian Post checkout field controls in the settings tab, and retain required/not_required/hidden behavior consistent with the standard RadicalMart plugin.'
+    execution_mode:
+      kind: implementation
+      code_changes_allowed: true
+      artifact_changes_allowed: true
+      requires_review: true
+    scope:
+      allowed_files:
+        - .pf/artifacts/russianpost-field-settings-fix/**
+        - .pf/tmp/russianpost-field-settings-fix/**
+        - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+        - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+        - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+      allowed_read_files:
+        - .pf/AGENTS.md
+        - .pf/artifacts/russianpost-field-settings-fix/**
+        - .pf/assignments/**
+        - .pf/contexts/**
+        - .pf/process-forge.yaml
+        - .pf/tmp/russianpost-field-settings-fix/**
+        - AGENTS.md
+        - plg_radicalmart_shipping_wishboxrussianpost/**
+      forbidden_files:
+        []
+      allowed_actions:
+        - read
+        - write_artifact
+        - write_product
+      forbidden_actions:
+        []
+      ownership:
+        owner_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+        owner_label: worker-fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+        role: ""
+        writer: true
+        owned_files:
+          - .pf/artifacts/russianpost-field-settings-fix/**
+          - .pf/tmp/russianpost-field-settings-fix/**
+          - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+          - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+          - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+          - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+          - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+        owned_globs:
+          []
+      non_overlap:
+        policy: block_on_write_overlap
+        active_parallel_tasks:
+          []
+        current_write_scope:
+          - .pf/artifacts/russianpost-field-settings-fix/**
+          - .pf/tmp/russianpost-field-settings-fix/**
+          - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+          - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+          - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+          - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+          - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+    required_sources:
+      []
+    context_artifacts:
+      []
+    outputs:
+      required_outputs:
+        -
+          id: russianpost-field-settings-fix-report
+          path: .pf/artifacts/russianpost-field-settings-fix/report.md
+          type: markdown
+          required: true
+      expected_report:
+        artifact: .pf/artifacts/russianpost-field-settings-fix/report.md
+        language: ru
+        format: markdown
+    workspace_access:
+      knowledge_resources:
+        []
+      templates:
+        []
+      tools:
+        []
+      mcp:
+        []
+    subagent_policy:
+      allow: false
+      max_subagents: 0
+      allowed_roles:
+        []
+      require_reports: false
+      reports_dir: ""
+    required_capabilities:
+      []
+    optional_capabilities:
+      []
+    process: task-batch-execution
+    selected_specializations:
+      []
+    coordination_requirements:
+      {}
+    director_inbox_submit_required: false
+    parameters:
+      {}
+    allowed_tools:
+      []
+    allowed_templates:
+      []
+    selected_sources:
+      []
+    obligations:
+      required_artifacts:
+        []
+      required_reviews:
+        []
+      quality_checklist:
+        []
+      completion_criteria:
+        []
+      handoff_requirements:
+        []
+      required_specializations:
+        []
+      goal: ""
+      role: ""
+      dependencies:
+        blocked_by:
+          []
+        blocks:
+          []
+  assignment_intent_checksum: 'sha256:94d4949beab2f2464ca368fe846bde33d632e40306663a6b187d03f49a0f2773'
+  snapshot:
+    id: ctx-20261023-155255-a6985b
+    checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  process:
+    id: task-batch-execution
+    version: 1.0.0
+    fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  resources:
+    selected_ids:
+      - 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      - 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+    bindings_checksum: 'sha256:3b04b5ee5843ab49f7c843999d657f5d65e24197f910ba678b60a09180822b10'
+  scope:
+    allowed_files:
+      - .pf/artifacts/russianpost-field-settings-fix/**
+      - .pf/tmp/russianpost-field-settings-fix/**
+      - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+      - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+      - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+      - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+    allowed_read_files:
+      - .pf/AGENTS.md
+      - .pf/artifacts/russianpost-field-settings-fix/**
+      - .pf/assignments/**
+      - .pf/contexts/**
+      - .pf/process-forge.yaml
+      - .pf/tmp/russianpost-field-settings-fix/**
+      - AGENTS.md
+      - plg_radicalmart_shipping_wishboxrussianpost/**
+    forbidden_files:
+      []
+    allowed_actions:
+      - read
+      - write_artifact
+      - write_product
+    forbidden_actions:
+      []
+    ownership:
+      owner_id: fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+      owner_label: worker-fix-russian-post-shipping-method-admin-field-settings-remove-legacy-cdek
+      role: ""
+      writer: true
+      owned_files:
+        - .pf/artifacts/russianpost-field-settings-fix/**
+        - .pf/tmp/russianpost-field-settings-fix/**
+        - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+        - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+        - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+      owned_globs:
+        []
+    non_overlap:
+      policy: block_on_write_overlap
+      active_parallel_tasks:
+        []
+      current_write_scope:
+        - .pf/artifacts/russianpost-field-settings-fix/**
+        - .pf/tmp/russianpost-field-settings-fix/**
+        - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml
+        - plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini
+        - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php
+        - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**
+  required_sources:
+    []
+  outputs:
+    required_outputs:
+      -
+        id: russianpost-field-settings-fix-report
+        path: .pf/artifacts/russianpost-field-settings-fix/report.md
+        type: markdown
+        required: true
+    expected_report:
+      artifact: .pf/artifacts/russianpost-field-settings-fix/report.md
+      language: ru
+      format: markdown
+  capabilities:
+    required:
+      []
+    optional:
+      []
+  workspace_access:
+    knowledge_resources:
+      []
+    templates:
+      []
+    tools:
+      []
+    mcp:
+      []
+  parameters:
+    {}
+  coordination:
+    effective_mode: simple
+    director_required: false
+    director_available_at_workplace: false
+  worker_may_rebuild_context: false
+  source_limits:
+    files: 128
+    file_bytes: 1048576
+    total_bytes: 8388608
+  readiness:
+    status: ready
+    blockers:
+      []
+  contract_checksum: 'sha256:126b6edaa3a776e65766dba6e7ac2ad38d130ad7556db34e61ebe4b4f9386cd8'
+resource_bindings:
+  schema_version: 1
+  resources:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      status: available
+      material_kind: metadata
+      generation: 'sha256:2452c23f5e4aa4c0cc089e0f2ec1ec0dd2e8b7b82b2c6c5a3bbf9842cb071ce8'
+      metadata_fingerprint: 'sha256:a8b295fd45eb5c744c964ff603cd87ba8b9c36398e3d18799785bdbacb8ac133'
+      material_fingerprint: 'sha256:2452c23f5e4aa4c0cc089e0f2ec1ec0dd2e8b7b82b2c6c5a3bbf9842cb071ce8'
+      reference:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      indexing:
+        enabled: true
+        mode: metadata
+        fields:
+          - title
+          - description
+          - tags
+          - path
+        sources:
+          -
+            path: .
+            mode: metadata
+            include:
+              - '**/*'
+            exclude:
+              []
+      manifest:
+        []
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      status: available
+      material_kind: fulltext
+      generation: 'sha256:79dac09ddd178fc26e31a9441db72c72e91ea5b91f2190cc522c2ba303ee0192'
+      metadata_fingerprint: 'sha256:e9d47c9ea8e49d4adad747b64a88d285529c2eff9636245a20b34d8d1b35e9b6'
+      material_fingerprint: 'sha256:79dac09ddd178fc26e31a9441db72c72e91ea5b91f2190cc522c2ba303ee0192'
+      reference:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      indexing:
+        enabled: true
+        mode: fulltext
+        fields:
+          - title
+          - description
+          - path
+        sources:
+          -
+            path: .
+            mode: fulltext
+            include:
+              - '**/*.md'
+              - '**/*.txt'
+              - '**/*.rst'
+            exclude:
+              []
+      manifest:
+        -
+          relative_path: project-profile.md
+          size: 1204
+          sha256: 'sha256:8eb481aa605690e20e2201472cc1d721af462d8b15875dce9b9ad9935b059309'
+  limits:
+    resources: 64
+    files: 2048
+    bytes: 33554432
+    documents: 2048
+    document_bytes: 33554432
+    visited_entries: 20000
+    files_per_resource: 256
+    bytes_per_resource: 8388608
+    bytes_per_file: 1000000
+  status: available
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  process_source: 'catalog:task-batch-execution'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  definition:
+    schema_version: 1
+    id: task-batch-execution
+    name: Task Batch Execution
+    version: 1.0.0
+    status: active
+    description: Default single-agent process for one primary agent session to execute tasks sequentially inside one project/run with repeated work, debug, fix, review, and handoff iterations.
+    execution_mode: single_agent
+    required_capabilities:
+      - process_coordination
+      - repository_read
+      - reporting
+    hooks:
+      emit:
+        -
+          event: run.created
+          required: true
+        -
+          event: task.created
+          required: true
+        -
+          event: task.started
+          required: true
+        -
+          event: iteration.added
+          required: true
+        -
+          event: iteration.completed
+          required: true
+        -
+          event: task.completed
+          required: true
+        -
+          event: run.summary.created
+          required: true
+        -
+          event: run.completed
+          required: true
+      future_subscriptions:
+        -
+          event: task.completed
+          actions:
+            -
+              type: refresh_task_index
+        -
+          event: run.completed
+          actions:
+            -
+              type: create_handoff
+      tracking:
+        include:
+          - run_id
+          - task_id
+          - iteration_id
+          - process_id
+          - assignment_id
+          - artifact_refs
+          - actor
+          - status
+    roles:
+      -
+        id: run-coordinator
+        title: Run Coordinator
+        responsibility: Creates the run, keeps the task index coherent, and writes final summary and handoff.
+        kind: primary_agent
+        responsibilities:
+          - Creates the run, keeps the task index coherent, and writes final summary and handoff.
+      -
+        id: task-worker
+        title: Task Worker
+        responsibility: Executes task iterations and records results.
+        kind: worker_agent
+        responsibilities:
+          - Executes task iterations and records results.
+      -
+        id: reviewer
+        title: Reviewer
+        responsibility: Checks run consistency and residual risks before completion.
+        kind: primary_agent
+        responsibilities:
+          - Checks run consistency and residual risks before completion.
+    stages:
+      -
+        id: run-intake
+        title: Create or inspect run
+        description: Create the run or inspect an existing active run.
+        required_inputs:
+          []
+        produced_artifacts:
+          - run-record
+        required_role: run-coordinator
+        required_capabilities:
+          - process_coordination
+        allowed_tools:
+          - processforge-cli
+        entry_gates:
+          []
+        exit_gates:
+          - run-has-context
+        goal: Create the run or inspect an existing active run.
+        actor: primary_agent
+        gates:
+          - run-has-context
+      -
+        id: task-planning
+        title: Create or collect tasks
+        description: Create assignment-backed tasks and attach them to the run.
+        required_inputs:
+          - run-record
+        produced_artifacts:
+          - task-index
+        required_role: run-coordinator
+        required_capabilities:
+          - process_coordination
+        allowed_tools:
+          - processforge-cli
+        entry_gates:
+          - run-has-context
+        exit_gates:
+          - run-has-tasks
+        goal: Create assignment-backed tasks and attach them to the run.
+        actor: primary_agent
+        gates:
+          - run-has-tasks
+      -
+        id: task-execution-loop
+        title: Execute task iterations
+        description: Record work, debug, fix, review, test, research, handoff, or note iterations for each task.
+        required_inputs:
+          - task-index
+        produced_artifacts:
+          - task-iteration-log
+        required_role: task-worker
+        required_capabilities:
+          - repository_read
+        allowed_tools:
+          - processforge-cli
+          - test_runner
+        entry_gates:
+          - run-has-tasks
+        exit_gates:
+          - task-results-recorded
+        goal: Record work, debug, fix, review, test, research, handoff, or note iterations for each task.
+        actor: worker_agent
+        gates:
+          - task-results-recorded
+      -
+        id: task-result-fixation
+        title: Fix task results
+        description: Complete each task with a result summary or result artifact.
+        required_inputs:
+          - task-iteration-log
+        produced_artifacts:
+          - task-result
+        required_role: task-worker
+        required_capabilities:
+          - reporting
+        allowed_tools:
+          - processforge-cli
+        entry_gates:
+          - task-results-recorded
+        exit_gates:
+          - all-blocking-tasks-completed
+        goal: Complete each task with a result summary or result artifact.
+        actor: worker_agent
+        gates:
+          - all-blocking-tasks-completed
+      -
+        id: run-review
+        title: Review run results
+        description: Run run-doctor and task-doctor checks before final completion.
+        required_inputs:
+          - task-result
+        produced_artifacts:
+          - run-review
+        required_role: reviewer
+        required_capabilities:
+          - artifact_review
+        allowed_tools:
+          - processforge-cli
+        entry_gates:
+          - all-blocking-tasks-completed
+        exit_gates:
+          - run-doctor-passed
+        goal: Run run-doctor and task-doctor checks before final completion.
+        actor: primary_agent
+        gates:
+          - run-doctor-passed
+      -
+        id: run-summary
+        title: Create final run summary and handoff
+        description: Aggregate task results into a run summary and handoff.
+        required_inputs:
+          - run-review
+        produced_artifacts:
+          - run-summary
+          - run-handoff
+        required_role: run-coordinator
+        required_capabilities:
+          - reporting
+        allowed_tools:
+          - processforge-cli
+        entry_gates:
+          - run-doctor-passed
+        exit_gates:
+          - run-summary-created
+        goal: Aggregate task results into a run summary and handoff.
+        actor: primary_agent
+        gates:
+          - run-summary-created
+    artifact_definitions:
+      -
+        id: run-record
+        title: Run Record
+        owner_role: run-coordinator
+        template: run
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/run-record.md
+      -
+        id: task-index
+        title: Task Index
+        owner_role: run-coordinator
+        template: artifact-template
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/task-index.md
+      -
+        id: task-iteration-log
+        title: Task Iteration Log
+        owner_role: task-worker
+        template: iteration
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/task-iteration-log.md
+      -
+        id: task-result
+        title: Task Result
+        owner_role: task-worker
+        template: assignment-task
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/task-result.md
+      -
+        id: run-review
+        title: Run Review
+        owner_role: reviewer
+        template: review-template
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/run-review.md
+      -
+        id: run-summary
+        title: Run Summary
+        owner_role: run-coordinator
+        template: validation-report-template
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/run-summary.md
+      -
+        id: run-handoff
+        title: Run Handoff
+        owner_role: run-coordinator
+        template: handoff-template
+        lifecycle:
+          - draft
+          - ready_for_review
+          - approved
+        type: markdown
+        required: true
+        path_hint: .pf/artifacts/run-handoff.md
+    gates:
+      -
+        id: run-has-context
+        description: Run has title, objective, process id, and public-safe scope.
+        blocking: true
+        type: checklist
+        required: true
+      -
+        id: run-has-tasks
+        description: Run contains at least one assignment-backed task.
+        blocking: true
+        type: checklist
+        required: true
+      -
+        id: task-results-recorded
+        description: Each task has iterations and a result placeholder.
+        blocking: true
+        type: checklist
+        required: true
+      -
+        id: all-blocking-tasks-completed
+        description: All blocking tasks are done before run completion.
+        blocking: true
+        type: checklist
+        required: true
+      -
+        id: run-doctor-passed
+        description: run-doctor reports no failures.
+        blocking: true
+        type: checklist
+        required: true
+      -
+        id: run-summary-created
+        description: Run summary and handoff exist.
+        blocking: true
+        type: checklist
+        required: true
+    required_packages:
+      - process-forge-core
+    required_templates:
+      - run
+      - assignment-task
+      - iteration
+      - review-template
+      - handoff-template
+    allowed_tools:
+      - processforge-cli
+      - test_runner
+      - validator
+    forbidden_actions:
+      - create_background_runner
+      - claim_task_without_assignment_record
+      - write_private_absolute_paths_to_public_files
+    evolve:
+      enabled: true
+      mode: optional
+      timing: end_of_run
+      default_scope: project
+      candidate_targets:
+        - knowledge_package
+        - template_package
+        - process_definition
+        - delivery_profile
+        - project_rule
+        - workplace_rule
+        - platform_contract
+      extraction_hints:
+        - Split candidates when an observation contains project-specific and platform-general parts.
+        - Default to the narrowest safe scope and require evidence before parent-platform promotion.
+        - reusable rule
+        - missing knowledge
+        - template improvement
+        - regression check
+        - process improvement
+      candidate_targeting:
+        default_scope: project
+        require_applicability: true
+        require_target: true
+        default_to_narrowest_scope: true
+      required_outputs:
+        - evolution-report
+      privacy:
+        default_sensitivity: internal
+        export_requires_sanitization: true
+        allow_private_paths: false
+      apply_policy:
+        auto_apply_global: false
+        create_candidates_only: true
+    evolution_policy:
+      active_run_upgrade:
+        default: manual_only
+      protected_artifacts:
+        - run-summary
+        - run-handoff
+      safe_changes:
+        - add_optional_iteration_kind
+        - add_non_blocking_gate
+      blocked_changes:
+        - add_file_locks_to_mvp
+        - add_background_watcher_to_mvp
+      requires_approval:
+        - change_task_status_model
+    catalog:
+      classification: PUBLIC_STABLE
+      public_surface: true
+      strict_contract: true
+    public_surface: true
+    coordination_requirements:
+      mode: simple_allowed
+      director_inbox:
+        required: false
+        optional: false
+      error_workflow:
+        mode: none
+      simple_mode_behavior: disable_director_features
+    error_handling:
+      enabled: false
+      mode: none
+      fallback_if_no_director: needs_operator
+    responsibility_boundaries:
+      operator:
+        - Provides the objective, constraints, approvals, and final acceptance.
+      primary_agent:
+        - Executes the process stages, writes required artifacts, and runs gates.
+      director:
+        - Coordinates handoffs and leases only when the effective project mode requires Director.
+      inspector:
+        - Verifies runtime state, CLI gates, and worker proof artifacts when applicable.
+      worker:
+        - Works only from an assigned capsule and writes declared outputs.
+      cli_tools:
+        - Run deterministic ProcessForge checks and write machine-readable results.
+    subagent_policy:
+      allowed: false
+      require_reports: false
+      allowed_roles:
+        []
+    process_transitions:
+      []
+    stage_completion:
+      handoff_note_required: true
+    run_completion:
+      summary_required: true
+      handoff_artifact_required: true
+    process_pack:
+      package: process-forge-core
+      example_required: true
+    agent_prompt:
+      required: true
+  active_specializations:
+    []
+  selected_resource_ids:
+    - 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+    - 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+  allowed_processes:
+    - task-batch-execution
+capabilities:
+  required:
+    []
+  optional:
+    []
+resolved_parameters:
+  {}
+parameter_resolution_summary:
+  status: resolved
+  sources:
+    []
+  conflicts:
+    []
+resolved_resources:
+  -
+    id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+    kind: note_collection
+    package_id: project.pkg-radicalmart-wishboxrussianpost
+    requirement: required
+    versioning_mode: rolling_index
+    retention_policy: replace_in_place
+    instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+    path_ref:
+      package: project.pkg-radicalmart-wishboxrussianpost
+      relative_path: artifacts/project-profile.md
+    fingerprint:
+      type: resource_record_sha256
+      value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+    reproducibility:
+      level: best_effort
+      reason: resource retention policy is replace_in_place
+    snapshot_behavior:
+      on_new_version: mark_stale
+      on_current_generation_changed: mark_stale
+      on_instance_missing: broken
+      reproducibility: best_effort
+    resource_id: project-profile
+    title: Project profile and repository map
+    load_policy: when_relevant
+    index_policy: full_text
+    selection:
+      mode: legacy_narrow
+      reason: legacy_direct_package
+      preferred_version: null
+      constraint: null
+  -
+    id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+    kind: reference
+    package_id: project.pkg-radicalmart-wishboxrussianpost
+    requirement: required
+    versioning_mode: rolling_index
+    retention_policy: replace_in_place
+    instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+    path_ref:
+      package: project.pkg-radicalmart-wishboxrussianpost
+      relative_path: artifacts
+    fingerprint:
+      type: resource_record_sha256
+      value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+    reproducibility:
+      level: best_effort
+      reason: resource retention policy is replace_in_place
+    snapshot_behavior:
+      on_new_version: mark_stale
+      on_current_generation_changed: mark_stale
+      on_instance_missing: broken
+      reproducibility: best_effort
+    resource_id: project-artifacts
+    title: Project ProcessForge artifacts
+    load_policy: on_demand
+    index_policy: metadata
+    selection:
+      mode: legacy_narrow
+      reason: legacy_direct_package
+      preferred_version: null
+      constraint: null

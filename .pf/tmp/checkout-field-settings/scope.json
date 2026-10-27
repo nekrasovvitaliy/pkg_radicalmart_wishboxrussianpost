@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/**",
+      ".pf/artifacts/checkout-field-settings/**",
+      ".pf/tmp/checkout-field-settings/**"
+    ],
+    "allowed_files": [
+      "plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/method.xml",
+      "plg_radicalmart_shipping_wishboxrussianpost/language/en-GB/plg_radicalmart_shipping_wishboxrussianpost.ini",
+      "plg_radicalmart_shipping_wishboxrussianpost/language/ru-RU/plg_radicalmart_shipping_wishboxrussianpost.ini",
+      "plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php",
+      ".pf/artifacts/checkout-field-settings/**",
+      ".pf/tmp/checkout-field-settings/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "checkout-field-settings-report",
+        "path": ".pf/artifacts/checkout-field-settings/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/checkout-field-settings/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  },
+  "predecessor": {
+    "run_id": "garage-checkout-room-to-api-field-preparer-trait",
+    "assignment_id": "checkout-room-to-api-field-preparer-trait",
+    "capsule_checksum": "sha256:acc207d069bf7dcba61f36c2b2ec680eef9e75bc20cd61326d1e3167ea11a82c"
+  }
+}

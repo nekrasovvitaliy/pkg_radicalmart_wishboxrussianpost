@@ -1,0 +1,936 @@
+schema_version: 1
+id: ctx-20261023-155255-a6985b
+generated_at: '2026-10-23T15:52:55Z'
+snapshot:
+  id: ctx-20261023-155255-a6985b
+  generated_at: '2026-10-23T15:52:55Z'
+  valid_until: '2026-10-30T15:52:55Z'
+  refresh_policy:
+    max_age_days: 7
+    refresh_when_sources_change: true
+    refresh_when_workplace_changes: true
+    refresh_when_package_versions_change: true
+    refresh_when_required_tools_change: true
+  health:
+    status: pass
+project:
+  id: pkg-radicalmart-wishboxrussianpost
+  name: pkg_radicalmart_wishboxrussianpost
+  type: generic
+project_classification:
+  status: unclassified
+  project_types:
+    []
+  platforms:
+    []
+  tags:
+    []
+  confidence: low
+  loaded_classifiers:
+    []
+  matched_rules:
+    []
+  inactive_classifier_hints:
+    - processforge.official.software-development could classify this project via processforge.official.software-web.classifier; activate with `python bin/pf.py pack-activate --id processforge.official.software-development --workplace <workplace-root> --apply`, then rerun project-context-refresh.
+flow:
+  root: .pf
+  layout: pf
+  manifest: .pf/process-forge.yaml
+  local_config: .pf/process-forge.local.yaml
+process_forge:
+  version: 1.0.0
+  version_constraint: ^1.0
+  install_mode: linked
+  distribution:
+    id: processforge
+    source: workplace
+    path: <private-distribution-ref>
+    status: available
+platform_contracts:
+  available:
+    []
+  selected:
+    []
+  stack:
+    []
+  missing_required:
+    []
+  circular:
+    []
+  missing_required_resources:
+    []
+  missing_recommended_resources:
+    []
+available_platform_contracts:
+  []
+selected_platform_contracts:
+  []
+platform_selection:
+  status: not_selected
+  reason: No platform contracts were selected for this project.
+platform_stack:
+  []
+sources:
+  fingerprints:
+    -
+      id: project_manifest
+      path: .pf/process-forge.yaml
+      kind: manifest
+      checksum: 32d5eda6ed72039884a4244ca3dd60695a4048cf8d07cd56f9284c930ab766b4
+    -
+      id: local_config
+      path: .pf/process-forge.local.yaml
+      kind: local-config
+      checksum: 21fafbbae722c9ea8bb150f3334100776cde24ccad294a562c9c180c4e9b2fda
+      private: true
+    -
+      id: workplace_manifest
+      path: <private-workplace-manifest-ref>
+      kind: workplace
+      checksum: 78d444ec050c43031e7e1a0a340af319176e9cbffd6dced707c2ea759526168f
+      private: true
+    -
+      id: workplace-specialization-registry-registries-specializations-yaml
+      path: <private-workplace-ref>/registries/specializations.yaml
+      kind: workplace-specialization-registry
+      checksum: f6927ce04ce74a9a42fb4bd9f982ca2acb48ca5986f8a08d49ccf592f1246227
+      private: true
+    -
+      id: workplace-project-classifier-registry-registries-project-classifiers-yaml
+      path: <private-workplace-ref>/registries/project-classifiers.yaml
+      kind: workplace-project-classifier-registry
+      checksum: 639f2dba338de9ac230b3a74b8ab88897cc53c4a888781c3067d3fc69c87f0bd
+      private: true
+    -
+      id: workplace-process-pack-registry-registries-process-packs-yaml
+      path: <private-workplace-ref>/registries/process-packs.yaml
+      kind: workplace-process-pack-registry
+      checksum: a04b5ff2d85e2480f3d27522acda4149e57695b23179c3ea7898c3d2027020c9
+      private: true
+    -
+      id: workplace-tool-registry-registries-tools-yaml
+      path: <private-workplace-ref>/registries/tools.yaml
+      kind: workplace-tool-registry
+      checksum: 17db9938ae2db24686a8c7a140ef3e6935b59e6f0274ff42ce2c7f38be97b219
+      private: true
+    -
+      id: workplace-mcp-registry-registries-mcp-yaml
+      path: <private-workplace-ref>/registries/mcp.yaml
+      kind: workplace-mcp-registry
+      checksum: a9448438c310bfba84e138bdf59eb09a44a4b14edb3d93b3b1fc76b7496a2112
+      private: true
+    -
+      id: workplace-template-registry-registries-templates-yaml
+      path: <private-workplace-ref>/registries/templates.yaml
+      kind: workplace-template-registry
+      checksum: b91aeb4129d7645a2c4078abd64baf3384f5774d71cd79dd895df2afff2a4178
+      private: true
+    -
+      id: workplace-parameter-registry-registries-parameters-yaml
+      path: <private-workplace-ref>/registries/parameters.yaml
+      kind: workplace-parameter-registry
+      checksum: 5ab4af8e427aca6b3fef00e9d381f360ee416829875559190e0ad39d06747eb0
+      private: true
+    -
+      id: project-parameters
+      path: .pf/parameters.yaml
+      kind: project-parameters
+      checksum: f967130ee9091ba69019d46ff8498365eef046af0d7b8f3b876370920c73440d
+    -
+      id: package-override-packages-project-pkg-radicalmart-wishboxrussianpost-yaml
+      path: .pf/packages/project.pkg-radicalmart-wishboxrussianpost.yaml
+      kind: package-override
+      checksum: eb635ee19fc98fd35d0e9edf9359a6061706aa61ab02d1f8ee283f574f95c9da
+    -
+      id: registry-registries-project-classifiers-yaml
+      path: .pf/registries/project-classifiers.yaml
+      kind: registry
+      checksum: 639f2dba338de9ac230b3a74b8ab88897cc53c4a888781c3067d3fc69c87f0bd
+requirements_fingerprint:
+  process_forge_yaml: 'sha256:32d5eda6ed72039884a4244ca3dd60695a4048cf8d07cd56f9284c930ab766b4'
+  process_forge_local_yaml: 'sha256:21fafbbae722c9ea8bb150f3334100776cde24ccad294a562c9c180c4e9b2fda'
+context_requirements:
+  knowledge_packages:
+    -
+      id: processforge.core
+      constraint: ^1.0
+      required: true
+    -
+      id: project.pkg-radicalmart-wishboxrussianpost
+      constraint: 1.0.0
+      required: true
+  knowledge_resources:
+    []
+  resource_selection:
+    {}
+  template_packages:
+    []
+  templates:
+    []
+  tools:
+    []
+  platform_contracts:
+    []
+context_policy:
+  on_session_start:
+    check_freshness: true
+    check_update_candidates: if_due
+    if_fresh: continue
+    if_fresh_with_updates: notify
+    if_stale: ask_operator
+    if_broken: block
+  auto_refresh:
+    enabled: false
+    allow_patch: true
+    allow_minor: false
+    allow_major: false
+    allow_rolling_resources: false
+  active_run_behavior:
+    existing_capsules: pin_existing
+    new_capsules: require_fresh_snapshot
+  organized_mode:
+    stale_snapshot_action: needs_operator
+resolved_parameters:
+  {}
+parameter_resolution:
+  status: resolved
+  sources:
+    []
+  provenance:
+    {}
+  conflicts:
+    []
+resolved_context:
+  selected_platform:
+    []
+  platform_stack:
+    []
+  selected_specializations:
+    []
+  available_knowledge_packages:
+    []
+  activated_knowledge_packages:
+    []
+  excluded_knowledge_packages:
+    []
+  available_tools:
+    []
+  activated_tools:
+    []
+  excluded_tools:
+    []
+  available_mcp:
+    []
+  activated_mcp:
+    []
+  excluded_mcp:
+    []
+  activated_templates:
+    []
+  excluded_templates:
+    []
+  provided_capabilities:
+    []
+  applied_project_overrides:
+    []
+  effective_resources:
+    []
+  effective_fingerprints:
+    {}
+  resolution_reasons:
+    []
+  conflicts:
+    []
+  status: resolved
+  process: ""
+  active_resource_profile:
+    selected_platform:
+      []
+    platform_stack:
+      []
+    selected_specializations:
+      []
+    available_knowledge_packages:
+      []
+    activated_knowledge_packages:
+      []
+    excluded_knowledge_packages:
+      []
+    available_tools:
+      []
+    activated_tools:
+      []
+    excluded_tools:
+      []
+    available_mcp:
+      []
+    activated_mcp:
+      []
+    excluded_mcp:
+      []
+    activated_templates:
+      []
+    excluded_templates:
+      []
+    provided_capabilities:
+      []
+    applied_project_overrides:
+      []
+    effective_resources:
+      []
+    effective_fingerprints:
+      {}
+    resolution_reasons:
+      []
+    conflicts:
+      []
+  execution_route:
+    process: ""
+    stages:
+      []
+    required_capabilities:
+      []
+    capability_requirements:
+      []
+    required_artifacts:
+      []
+    required_evidence:
+      []
+    acceptance_criteria:
+      []
+  capability_resolution:
+    satisfied:
+      []
+    unsatisfied:
+      []
+active_resource_profile:
+  selected_platform:
+    []
+  platform_stack:
+    []
+  selected_specializations:
+    []
+  available_knowledge_packages:
+    []
+  activated_knowledge_packages:
+    []
+  excluded_knowledge_packages:
+    []
+  available_tools:
+    []
+  activated_tools:
+    []
+  excluded_tools:
+    []
+  available_mcp:
+    []
+  activated_mcp:
+    []
+  excluded_mcp:
+    []
+  activated_templates:
+    []
+  excluded_templates:
+    []
+  provided_capabilities:
+    []
+  applied_project_overrides:
+    []
+  effective_resources:
+    []
+  effective_fingerprints:
+    {}
+  resolution_reasons:
+    []
+  conflicts:
+    []
+execution_route:
+  process: ""
+  stages:
+    []
+  required_capabilities:
+    []
+  capability_requirements:
+    []
+  required_artifacts:
+    []
+  required_evidence:
+    []
+  acceptance_criteria:
+    []
+capability_resolution:
+  satisfied:
+    []
+  unsatisfied:
+    []
+selected_specializations:
+  []
+applied_project_overrides:
+  []
+effective_fingerprints:
+  {}
+resolution_reasons:
+  []
+conflicts:
+  []
+resolved:
+  knowledge_packages:
+    -
+      id: processforge.core
+      constraint: declared
+    -
+      id: project.pkg-radicalmart-wishboxrussianpost
+      constraint: declared
+  knowledge_resources:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      kind: note_collection
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-profile
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      kind: reference
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-artifacts
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+  available_knowledge_resources:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      kind: note_collection
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-profile
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      kind: reference
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-artifacts
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+  template_packages:
+    []
+  templates:
+    []
+  excluded_templates:
+    []
+  tools:
+    []
+  excluded_tools:
+    []
+  platform_contracts:
+    []
+  process_packages:
+    []
+local_search_resources:
+  -
+    id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+    resource_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+    package_id: project.pkg-radicalmart-wishboxrussianpost
+    kind: note_collection
+    title: Project profile and repository map
+    description: ""
+    version: ""
+    fingerprint:
+      type: resource_record_sha256
+      value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+    path_ref:
+      package: project.pkg-radicalmart-wishboxrussianpost
+      relative_path: artifacts/project-profile.md
+    status: available
+    load_policy: snapshot_authorized
+    indexing:
+      enabled: true
+      mode: metadata
+      fields:
+        - title
+        - description
+        - version
+        - path
+      sources:
+        -
+          path: .
+          mode: metadata
+          role: note_collection
+  -
+    id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+    resource_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+    package_id: project.pkg-radicalmart-wishboxrussianpost
+    kind: reference
+    title: Project ProcessForge artifacts
+    description: ""
+    version: ""
+    fingerprint:
+      type: resource_record_sha256
+      value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+    path_ref:
+      package: project.pkg-radicalmart-wishboxrussianpost
+      relative_path: artifacts
+    status: available
+    load_policy: snapshot_authorized
+    indexing:
+      enabled: true
+      mode: metadata
+      fields:
+        - title
+        - description
+        - version
+        - path
+      sources:
+        -
+          path: .
+          mode: metadata
+          role: reference
+resource_selection:
+  mode: legacy_narrow
+  status: resolved
+  target_versions:
+    []
+  selected_count: 2
+  available_count: 2
+  provenance:
+    -
+      selector:
+        id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+        preferred_version: ""
+        required: true
+        selection_reason: legacy_direct_package
+      resource_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      status: selected
+    -
+      selector:
+        id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+        preferred_version: ""
+        required: true
+        selection_reason: legacy_direct_package
+      resource_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      status: selected
+freshness:
+  status: fresh
+  checked_at: '2026-10-23T15:52:55Z'
+  stale_reasons:
+    []
+  update_available:
+    []
+  broken_refs:
+    []
+readiness:
+  context:
+    status: fresh
+  resources:
+    status: fresh
+    blockers:
+      []
+  execution:
+    status: ready
+    missing_capabilities:
+      []
+    blockers:
+      []
+resource_readiness:
+  status: fresh
+  blockers:
+    []
+execution_readiness:
+  status: ready
+  missing_capabilities:
+    []
+  blockers:
+    []
+reproducibility:
+  level: best_effort
+  reasons:
+    - resource retention policy is replace_in_place
+source_fingerprints:
+  workplace_manifest: 78d444ec050c43031e7e1a0a340af319176e9cbffd6dced707c2ea759526168f
+  package_roots_registry: 'sha256:607ce46d7c6ce69f13b5cfc2de69697d6fec0948c84dcb908096bf366020b22c'
+  knowledge_roots_registry: 'sha256:514d01e962133309e11247ebb3f7975227d558c5e8238a9b814c233c6e8709a7'
+  template_registry: 'sha256:b91aeb4129d7645a2c4078abd64baf3384f5774d71cd79dd895df2afff2a4178'
+  tool_registry: 'sha256:17db9938ae2db24686a8c7a140ef3e6935b59e6f0274ff42ce2c7f38be97b219'
+  parameters_registry: 'sha256:5ab4af8e427aca6b3fef00e9d381f360ee416829875559190e0ad39d06747eb0'
+  installed_subjects: 'sha256:c95d51f4bae9e30bea3926aa18ce93b87b50535c69d25d00b294cbd4a1115502'
+knowledge_stack:
+  -
+    id: processforge.core
+    version: ^1.0
+    source: distribution
+    distribution: processforge
+  -
+    id: project.pkg-radicalmart-wishboxrussianpost
+    version: 1.0.0
+    source: project
+resolved_policies:
+  hard:
+    -
+      id: public.no_local_absolute_paths
+      value: true
+      locked: true
+    -
+      id: files.one_writer_per_scope
+      value: true
+      locked: true
+    -
+      id: secrets.public_exports_sanitized
+      value: true
+      locked: true
+    -
+      id: runtime.private
+      value: true
+      locked: true
+    -
+      id: markdown.not_machine_merge_source
+      value: true
+      locked: true
+  preferences:
+    -
+      id: templates.project_overrides_global
+      value: true
+    -
+      id: session.prefer_project_context_snapshot
+      value: true
+capabilities:
+  required:
+    []
+  optional:
+    []
+knowledge_resources:
+  selected:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      kind: note_collection
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-profile
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      kind: reference
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-artifacts
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+  available:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      kind: note_collection
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-profile
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      kind: reference
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: recommended
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-artifacts
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+  required:
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile'
+      kind: note_collection
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-profile@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts/project-profile.md
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:ca7a814d5a3b2aeddb01bb15c3f5e891abcbca8446c0e47cce5e75f0c8c5566e'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-profile
+      title: Project profile and repository map
+      load_policy: when_relevant
+      index_policy: full_text
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+    -
+      id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts'
+      kind: reference
+      package_id: project.pkg-radicalmart-wishboxrussianpost
+      requirement: required
+      versioning_mode: rolling_index
+      retention_policy: replace_in_place
+      instance_id: 'project.pkg-radicalmart-wishboxrussianpost:project-artifacts@current'
+      path_ref:
+        package: project.pkg-radicalmart-wishboxrussianpost
+        relative_path: artifacts
+      fingerprint:
+        type: resource_record_sha256
+        value: 'sha256:49c1bd5c0a8284311243f95c2037ba6b010a495e42a7cfbea1d8213e2a789bca'
+      reproducibility:
+        level: best_effort
+        reason: resource retention policy is replace_in_place
+      snapshot_behavior:
+        on_new_version: mark_stale
+        on_current_generation_changed: mark_stale
+        on_instance_missing: broken
+        reproducibility: best_effort
+      resource_id: project-artifacts
+      title: Project ProcessForge artifacts
+      load_policy: on_demand
+      index_policy: metadata
+      selection:
+        mode: legacy_narrow
+        reason: legacy_direct_package
+        preferred_version: null
+        constraint: null
+  recommended:
+    []
+  missing_required:
+    []
+  missing_recommended:
+    []
+tools:
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+mcp:
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+templates:
+  project:
+    []
+  required:
+    []
+  recommended:
+    []
+  activated:
+    []
+  excluded:
+    []
+  source: workplace-registry
+processes:
+  enabled:
+    []
+  selection:
+    default: task-batch-execution
+    allowed:
+      - task-batch-execution
+    source: fallback
+packages:
+  selected:
+    []
+workplace_coordination:
+  project_mode: inherit
+  workplace_default_project_mode: simple
+  effective_mode: simple
+  director_enabled: false
+  director_available_at_workplace: false
+  director_office_exists: false
+  director_required: false
+  director_process: null
+  director_inbox:
+    enabled: false
+session:
+  startup_read_order:
+    - AGENTS.md
+    - .pf/process-forge.yaml
+    - pf.context; verify current snapshot freshness and readiness with the existing CLI when MCP is unavailable
+    - 'pf.work.start / pf.work.state: returned assignment and immutable capsule, identity, scope and obligations'
+    - 'pf.work.search / pf.work.resolve: exact returned Work/context selectors and authorized resources'
+    - extended .pf/AGENTS.md and relevant artifacts/logs/reviews/handoffs on demand
+  telemetry_root: .pf/runtime/telemetry
+  events_log: .pf/runtime/events/events.sqlite3

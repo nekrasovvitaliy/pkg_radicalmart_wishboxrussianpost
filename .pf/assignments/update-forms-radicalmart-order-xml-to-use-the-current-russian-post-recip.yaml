@@ -1,0 +1,223 @@
+schema_version: 1
+id: update-forms-radicalmart-order-xml-to-use-the-current-russian-post-recip
+title: Update forms/radicalmart/order.xml to use the current Russian Post recipient, de
+run_id: garage-update-forms-radicalmart-order-xml-to-use-the-current-russian-pos
+process: task-batch-execution
+status: done
+created_at: '2026-10-24T08:45:16Z'
+updated_at: '2026-10-24T08:46:04Z'
+objective: Update forms/radicalmart/order.xml to use the current Russian Post recipient, delivery address, and mail type fields while preserving registration, tracking, price, and administrative fields.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Completed the scoped order.xml field update and all validation checks.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-24T08:46:01Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Updated order.xml to use recipient_name, index_to, region_to, place_to, street_to, house_to, room_to, and mail_type; preserved registration, tracking, price, and administrative fields.
+      recorded_at: '2026-10-24T08:46:04Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Implementation is complete; no follow-up action is required for the scoped XML form update.
+      recorded_at: '2026-10-24T08:46:04Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Final summary and handoff evidence recorded.
+      recorded_at: '2026-10-24T08:46:04Z'
+  notes: Completed the scoped order.xml field update and all validation checks.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-24T08:45:16Z'
+    completed_at: '2026-10-24T08:45:33Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped Work to update order.xml with current Russian Post fields.
+        recorded_at: '2026-10-24T08:45:33Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh project context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-24T08:45:33Z'
+    notes: Передать актуализацию order.xml в планирование.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-24T08:45:33Z'
+    completed_at: '2026-10-24T08:45:37Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Replace legacy generic address fields in order.xml with recipient_name, index_to, region_to, place_to, street_to, house_to, room_to, and mail_type while retaining Russian Post registration, tracking, price, date, note, and recalculation fields.
+        recorded_at: '2026-10-24T08:45:37Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded XML update and validation task is ready.
+        recorded_at: '2026-10-24T08:45:37Z'
+    notes: Актуальные поля синхронизировать с order_site.xml; room_to оставить необязательным.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-24T08:45:37Z'
+    completed_at: '2026-10-24T08:45:52Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Replaced the legacy address block in order.xml with eight current Russian Post fields, retained service/admin fields, and passed XML and field-set checks.
+        recorded_at: '2026-10-24T08:45:52Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/russianpost-order-fields/report.md.
+        recorded_at: '2026-10-24T08:45:52Z'
+    notes: Передать обновлённую форму на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-24T08:45:52Z'
+    completed_at: '2026-10-24T08:45:54Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: order.xml now uses the current Russian Post recipient, address, and mail type fields and contains no legacy generic address fields.
+        recorded_at: '2026-10-24T08:45:54Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped XML update and structural validation completed successfully.
+        recorded_at: '2026-10-24T08:45:54Z'
+    notes: Передать order.xml и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-24T08:45:54Z'
+    completed_at: '2026-10-24T08:46:01Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Reviewed order.xml: eight current Russian Post fields are present, legacy generic address fields are absent, and service/admin fields remain intact.'
+        recorded_at: '2026-10-24T08:46:01Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: XML validation, field-set checks, run-doctor, and task-doctor passed.
+        recorded_at: '2026-10-24T08:46:01Z'
+    notes: Review completed; XML structure and current-field parity were verified.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-24T08:46:01Z'
+    completed_at: '2026-10-24T08:46:04Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Updated order.xml to use recipient_name, index_to, region_to, place_to, street_to, house_to, room_to, and mail_type; preserved registration, tracking, price, and administrative fields.
+        recorded_at: '2026-10-24T08:46:04Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Implementation is complete; no follow-up action is required for the scoped XML form update.
+        recorded_at: '2026-10-24T08:46:04Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Final summary and handoff evidence recorded.
+        recorded_at: '2026-10-24T08:46:04Z'
+    notes: Completed the scoped order.xml field update and all validation checks.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/update-forms-radicalmart-order-xml-to-use-the-current-russian-post-recip.capsule.yaml
+  assignment_capsule_checksum: 'sha256:298f521e4c6e4a43bb9dafcdb130c49851caa2b34ca7ef7b7867edb8d8cd36e1'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/**
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/OrderFormPreparer.php
+  - .pf/artifacts/russianpost-order-fields/**
+  - .pf/tmp/russianpost-order-fields/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order.xml
+  - .pf/artifacts/russianpost-order-fields/**
+  - .pf/tmp/russianpost-order-fields/**
+required_outputs:
+  -
+    id: russianpost-order-fields-report
+    path: .pf/artifacts/russianpost-order-fields/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/russianpost-order-fields/report.md
+  language: ru
+  format: markdown

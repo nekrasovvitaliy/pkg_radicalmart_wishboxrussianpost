@@ -1,0 +1,225 @@
+schema_version: 1
+id: setshippingdatavalue-wishboxradicalmart-orderservice-radicalmartorderreg
+title: Удалить дублирующий setShippingDataValue из плагина и использовать WishboxRadica
+run_id: garage-setshippingdatavalue-wishboxradicalmart-orderservice-radicalmarto
+process: task-batch-execution
+status: done
+created_at: '2026-10-27T09:29:16Z'
+updated_at: '2026-10-27T09:30:22Z'
+objective: Удалить дублирующий setShippingDataValue из плагина и использовать WishboxRadicalMart OrderService внутри библиотечного сервиса регистрации, сохранив единственную зависимость плагина RadicalMartOrderRegistrationService
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Работа завершена.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-27T09:30:18Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Дублирующий setShippingDataValue удалён из плагина, используется общий WishboxRadicalMart OrderService.
+      recorded_at: '2026-10-27T09:30:22Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Плагин сохранил единственную сервисную зависимость RadicalMartOrderRegistrationService; транзитивный OrderService скрыт за library provider.
+      recorded_at: '2026-10-27T09:30:22Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Итоговый отчёт создан, проверки успешны.
+      recorded_at: '2026-10-27T09:30:22Z'
+  notes: Работа завершена.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-27T09:29:16Z'
+    completed_at: '2026-10-27T09:29:21Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Создан Work для удаления дублирующего setter и использования общего RadicalMart OrderService.
+        recorded_at: '2026-10-27T09:29:21Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Контекст валиден, scope разрешает три целевых файла.
+        recorded_at: '2026-10-27T09:29:21Z'
+    notes: Контекст проверен; задача и разрешённый scope зафиксированы.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-27T09:29:21Z'
+    completed_at: '2026-10-27T09:29:24Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: 'План: удалить setter и Joomla MVC imports из плагина; внедрить OrderService в оркестратор; зарегистрировать OrderServiceProvider в агрегирующем provider; проверить синтаксис и зависимости.'
+        recorded_at: '2026-10-27T09:29:24Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: План реализации сформирован в пределах разрешённого scope.
+        recorded_at: '2026-10-27T09:29:24Z'
+    notes: Задачи определены, начинаю реализацию.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-27T09:29:24Z'
+    completed_at: '2026-10-27T09:29:57Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Удалён приватный setter из плагина; общий OrderService внедрён в оркестратор; OrderServiceProvider зарегистрирован агрегирующим provider.
+        recorded_at: '2026-10-27T09:29:57Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Изменения выполнены; php -l для трёх PHP-файлов успешен; статическая проверка связей успешна.
+        recorded_at: '2026-10-27T09:29:57Z'
+    notes: Реализация завершена, результаты готовы к фиксации.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-27T09:29:57Z'
+    completed_at: '2026-10-27T09:30:00Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: Результат зафиксирован в .pf/artifacts/order-service-shipping-data/report.md; плагин больше не содержит RadicalMart persistence-код.
+        recorded_at: '2026-10-27T09:30:00Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: Все изменения и проверки по задаче завершены.
+        recorded_at: '2026-10-27T09:30:00Z'
+    notes: Результаты сохранены, передаю на review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-27T09:30:00Z'
+    completed_at: '2026-10-27T09:30:18Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Проверено: plugin-класс не содержит setter/MVC persistence; OrderService внедрён в library orchestration; provider регистрирует зависимость; PHP lint успешен.'
+        recorded_at: '2026-10-27T09:30:18Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: task-doctor и run-doctor завершились PASS.
+        recorded_at: '2026-10-27T09:30:18Z'
+    notes: Review пройден без замечаний.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-27T09:30:18Z'
+    completed_at: '2026-10-27T09:30:22Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Дублирующий setShippingDataValue удалён из плагина, используется общий WishboxRadicalMart OrderService.
+        recorded_at: '2026-10-27T09:30:22Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Плагин сохранил единственную сервисную зависимость RadicalMartOrderRegistrationService; транзитивный OrderService скрыт за library provider.
+        recorded_at: '2026-10-27T09:30:22Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Итоговый отчёт создан, проверки успешны.
+        recorded_at: '2026-10-27T09:30:22Z'
+    notes: Работа завершена.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/setshippingdatavalue-wishboxradicalmart-orderservice-radicalmartorderreg.capsule.yaml
+  assignment_capsule_checksum: 'sha256:b613947414c301ce82b2442621e5c288a1b96305221d800fe4d5f3226bac8572'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_wishboxrussianpostorderregistration/**
+  - lib_wishboxradicalmartrussianpostorderregistration/**
+  - .pf/artifacts/order-service-shipping-data/**
+  - .pf/tmp/order-service-shipping-data/**
+allowed_files:
+  - plg_radicalmart_wishboxrussianpostorderregistration/src/Extension/WishboxRussianPostOrderRegistration.php
+  - lib_wishboxradicalmartrussianpostorderregistration/src/OrderRegistration/RadicalMartOrderRegistrationService.php
+  - lib_wishboxradicalmartrussianpostorderregistration/src/Service/Provider/RadicalMartOrderRegistration.php
+  - .pf/artifacts/order-service-shipping-data/**
+  - .pf/tmp/order-service-shipping-data/**
+required_outputs:
+  -
+    id: order-service-shipping-data-report
+    path: .pf/artifacts/order-service-shipping-data/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/order-service-shipping-data/report.md
+  language: ru
+  format: markdown

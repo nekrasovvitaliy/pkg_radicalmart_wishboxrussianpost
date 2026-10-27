@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field">
+    <fieldset name="shipping">
+        <fields name="shipping">
+
+            <field name="recipient_name"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RECIPIENT_NAME_LABEL"
+                   required="true"
+            />
+
+            <field name="index_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INDEX_TO_LABEL"
+                   required="true"
+                   onchange="RadicalMartCheckout().reloadForm(this);"
+                   hide_default="true"
+                   hide_none="true"
+            />
+
+            <field name="region_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_REGION_TO_LABEL"
+                   required="true"
+            />
+
+            <field name="place_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_PLACE_TO_LABEL"
+                   required="true"
+            />
+
+            <field name="street_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_STREET_TO_LABEL"
+                   required="true"
+            />
+
+            <field name="house_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_HOUSE_TO_LABEL"
+                   required="true"
+            />
+
+            <field name="room_to"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_ROOM_TO_LABEL"
+                   required="false"
+            />
+
+            <field name="mail_type"
+                   type="MailType"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_MAIL_TYPE_LABEL"
+                   required="true"
+                   addfieldprefix="Joomla\Component\WishboxRussianPost\Administrator\Field"
+                   hide_default="true"
+                   hide_none="true"
+                   onchange="RadicalMartCheckout().reloadForm(this);"
+            />
+
+            <field name="tracking_number"
+                   type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_TRACKING_NUMBER_LABEL"
+                   readonly="true"
+            />
+
+            <field name="russianpost_registration_request_uuid"
+                   type="textarea"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_REGISTRATION_REQUEST_UUID_LABEL"
+                   readonly="true"
+            />
+
+            <field name="russianpost_registration_entity_uuid"
+                   type="textarea"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_REGISTRATION_ENTITY_UUID_LABEL"
+                   readonly="true"
+            />
+
+            <field name="russianpost_registration_error_message"
+                   type="textarea"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_REGISTRATION_ERROR_MESSAGE_LABEL"
+                   readonly="true"
+            />
+
+            <field name="russianpost_registration_warning_message"
+                   type="textarea"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_REGISTRATION_WARNING_MESSAGE_LABEL"
+                   readonly="true"
+            />
+
+            <field name="russianpost_registration_last_request"
+                   type="RussianPostRegistrationRequest"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_REGISTRATION_LAST_REQUEST_LABEL"
+                   addfieldprefix="WishboxRadicalMartRussianPostOrderRegistrationLibrary\Field"
+            />
+
+            <field name="separator" type="spacer"
+                   hr="true"/>
+            <field name="date" type="calendar"
+                   label="PLG_RADICALMART_SHIPPING_STANDARD_SHIPPING_DATE"
+                   hint="PLG_RADICALMART_SHIPPING_STANDARD_SHIPPING_DATE_HINT"
+                   translateformat="true"
+                   showtime="false"
+                   filter="user_utc"/>
+            <field name="note"
+                   type="textarea"
+                   label="COM_RADICALMART_NOTE"
+            />
+        </fields>
+    </fieldset>
+    <fieldset name="shipping_admin">
+        <fields name="shipping">
+            <field name="date" type="calendar"
+                   label="PLG_RADICALMART_SHIPPING_STANDARD_SHIPPING_DATE"
+                   hint="PLG_RADICALMART_SHIPPING_STANDARD_SHIPPING_DATE_HINT"
+                   translateformat="true"
+                   showtime="false"
+                   filter="user_utc"/>
+
+            <field name="note" type="textarea"
+                   label="COM_RADICALMART_NOTE"/>
+
+            <fields name="price">
+                <field name="base" type="price"
+                       label="COM_RADICALMART_PRICE"
+                       currency="{currency_code}"
+                       class="clean-price"
+                />
+
+                <field name="tariff"
+                       type="price"
+                       label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_TARIFF_PRICE_LABEL"
+                       currency="{currency_code}"
+                       class="clean-price"
+                />
+
+                <field name="tariff_code"
+                       type="tariff"
+                       label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_TARIFF_LABEL"
+                       addfieldprefix="Joomla\Component\WishboxRussianPost\Administrator\Field"
+                       readonly="true"
+                />
+
+                <field name="period_min"
+                       type="text"
+                       label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_PERIOD_MIN_LABEL"
+                       readonly="true"
+                       addonAfter="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_DAYS_LABEL"
+                />
+
+                <field name="period_max"
+                       type="text"
+                       label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_PERIOD_MAX_LABEL"
+                       readonly="true"
+                       addonAfter="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_DAYS_LABEL"
+                />
+            </fields>
+            <field name="recalculate_price" type="list"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_PRICE_RECALCULATE"
+                   default="0"
+                   onchange="window.RadicalMartOrder().displayOrderChangeNotice();">
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+        </fields>
+    </fieldset>
+</form>

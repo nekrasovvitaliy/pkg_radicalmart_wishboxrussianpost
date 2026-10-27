@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/OrderSiteFormPreparer.php",
+      ".pf/artifacts/russianpost-order-site-fields/**",
+      ".pf/tmp/russianpost-order-site-fields/**"
+    ],
+    "allowed_files": [
+      "plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order_site.xml",
+      ".pf/artifacts/russianpost-order-site-fields/**",
+      ".pf/tmp/russianpost-order-site-fields/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "russianpost-order-site-fields-report",
+        "path": ".pf/artifacts/russianpost-order-site-fields/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/russianpost-order-site-fields/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  }
+}

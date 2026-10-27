@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "plg_radicalmart_wishboxrussianpostorderregistration/**",
+      "lib_wishboxradicalmartrussianpostorderregistration/**",
+      ".pf/artifacts/provider-composition/**",
+      ".pf/tmp/provider-composition/**"
+    ],
+    "allowed_files": [
+      "plg_radicalmart_wishboxrussianpostorderregistration/services/provider.php",
+      "lib_wishboxradicalmartrussianpostorderregistration/src/Service/Provider/RadicalMartOrderRegistration.php",
+      ".pf/artifacts/provider-composition/**",
+      ".pf/tmp/provider-composition/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "provider-composition-report",
+        "path": ".pf/artifacts/provider-composition/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/provider-composition/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  }
+}

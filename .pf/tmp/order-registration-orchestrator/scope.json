@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "lib_wishboxradicalmartrussianpostorderregistration/**",
+      "plg_radicalmart_wishboxrussianpostorderregistration/**",
+      ".pf/artifacts/order-registration-orchestrator/**",
+      ".pf/tmp/order-registration-orchestrator/**"
+    ],
+    "allowed_files": [
+      "lib_wishboxradicalmartrussianpostorderregistration/src/OrderRegistration/RadicalMartOrderRegistrationService.php",
+      ".pf/artifacts/order-registration-orchestrator/**",
+      ".pf/tmp/order-registration-orchestrator/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "order-registration-orchestrator-report",
+        "path": ".pf/artifacts/order-registration-orchestrator/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/order-registration-orchestrator/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  }
+}

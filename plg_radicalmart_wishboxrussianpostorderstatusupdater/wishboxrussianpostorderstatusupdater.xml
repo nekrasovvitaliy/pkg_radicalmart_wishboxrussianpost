@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="radicalmart" method="upgrade">
+	<name>plg_radicalmart_wishboxrussianpostorderstatusupdater</name>
+	<author>Nekrasov Vitaliy</author>
+	<creationDate>December 2023</creationDate>
+	<license>https://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+	<version>1.0.0</version>
+	<description>PLG_RADICALMART_WISHBOXRUSSIANPOSTORDERSTATUSUPDATER_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\RadicalMart\WishboxRussianPostOrderStatusUpdater</namespace>
+	<scriptfile>script.php</scriptfile>
+	<files>
+		<folder plugin="wishboxrussianpostorderstatusupdater">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxrussianpostorderstatusupdater.ini</language>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxrussianpostorderstatusupdater.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxrussianpostorderstatusupdater.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxrussianpostorderstatusupdater.sys.ini</language>
+	</languages>
+	<media folder="media" destination="plg_radicalmart_wishboxrussianpostorderstatusupdater">
+		<folder>js</folder>
+		<filename>joomla.asset.json</filename>
+	</media>
+	<layouts destination="plugins/radicalmart/wishboxrussianpostorderstatusupdater" folder="layouts">
+		<folder>toolbar</folder>
+	</layouts>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/**",
+      ".pf/artifacts/checkout-field-preparers/**",
+      ".pf/tmp/checkout-field-preparers/**"
+    ],
+    "allowed_files": [
+      "plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/**",
+      "plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/checkout.php",
+      ".pf/artifacts/checkout-field-preparers/**",
+      ".pf/tmp/checkout-field-preparers/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "checkout-field-preparers-report",
+        "path": ".pf/artifacts/checkout-field-preparers/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/checkout-field-preparers/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  },
+  "predecessor": {
+    "run_id": "garage-checkout-api",
+    "assignment_id": "checkout-api",
+    "capsule_checksum": "sha256:4a67cc8a6b9cffe7aaf1c57848e616e3037c1df39aa24c75bb917806fdd8607f"
+  }
+}

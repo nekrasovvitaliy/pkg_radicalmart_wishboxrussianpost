@@ -1,0 +1,227 @@
+schema_version: 1
+id: apply-russian-post-field-recipient-name-field-index-to-field-region-to-f
+title: Apply Russian Post field_recipient_name, field_index_to, field_region_to, field_
+run_id: garage-apply-russian-post-field-recipient-name-field-index-to-field-regi
+process: task-batch-execution
+status: done
+created_at: '2026-10-23T17:12:04Z'
+updated_at: '2026-10-23T17:12:53Z'
+objective: Apply Russian Post field_recipient_name, field_index_to, field_region_to, field_place_to, field_street_to, field_house_to, and field_room_to settings to the RadicalMart personal form using the existing preparer traits and personal layout, removing legacy CDEK-style field handling.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: 'Work завершён: настройки field_* теперь применяются к personal-форме.'
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-23T17:12:50Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Applied all seven Russian Post field settings to RadicalMart personal form preparation and rendering, replacing legacy CDEK-style field handling.
+      recorded_at: '2026-10-23T17:12:53Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: After deployment, the personal page uses the same required/not_required/hidden settings as checkout for recipient and delivery address fields.
+      recorded_at: '2026-10-23T17:12:53Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Implementation report, validation results, and deployment handoff are complete.
+      recorded_at: '2026-10-23T17:12:53Z'
+  notes: 'Work завершён: настройки field_* теперь применяются к personal-форме.'
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-23T17:12:04Z'
+    completed_at: '2026-10-23T17:12:09Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped Work to apply Russian Post field settings to RadicalMart personal form preparation and rendering.
+        recorded_at: '2026-10-23T17:12:09Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh ProcessForge context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-23T17:12:09Z'
+    notes: Передать preparer, event handler и personal layout в планирование.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-23T17:12:09Z'
+    completed_at: '2026-10-23T17:12:12Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Wire seven existing Russian Post field preparer traits into PersonalShippingMethodFormPreparer, remove legacy field removal from the event callback, and replace old personal layout field checks/rendering with the seven API fields.
+        recorded_at: '2026-10-23T17:12:12Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded preparer/event/layout implementation and validation task is ready.
+        recorded_at: '2026-10-23T17:12:12Z'
+    notes: 'Defaults mirror checkout: six required fields and optional room_to; hidden fields are removed and not rendered.'
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-23T17:12:12Z'
+    completed_at: '2026-10-23T17:12:41Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Wired all seven field preparer traits into personal form preparation, removed the legacy address loop, and updated personal layout to new Russian Post field settings and names. PHP/XML/static checks passed.
+        recorded_at: '2026-10-23T17:12:41Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/russianpost-personal-field-settings/report.md.
+        recorded_at: '2026-10-23T17:12:41Z'
+    notes: Передать обновлённую personal-цепочку на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-23T17:12:41Z'
+    completed_at: '2026-10-23T17:12:44Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: RadicalMart personal form now applies required/not_required/hidden settings to all seven Russian Post user fields and renders only non-hidden fields.
+        recorded_at: '2026-10-23T17:12:44Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped preparer, plugin event, and personal layout changes completed and validation passed.
+        recorded_at: '2026-10-23T17:12:44Z'
+    notes: Передать реализацию и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-23T17:12:44Z'
+    completed_at: '2026-10-23T17:12:50Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Verified seven trait imports/usages/calls, seven layout parameter checks and renders, no legacy exact field references, valid PHP syntax and XML, and consistent required/not_required/hidden defaults.
+        recorded_at: '2026-10-23T17:12:50Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: ProcessForge run-doctor with runtime events and task-doctor passed all checks.
+        recorded_at: '2026-10-23T17:12:50Z'
+    notes: Review принят; передать personal field settings в итоговую сводку.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-23T17:12:50Z'
+    completed_at: '2026-10-23T17:12:53Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Applied all seven Russian Post field settings to RadicalMart personal form preparation and rendering, replacing legacy CDEK-style field handling.
+        recorded_at: '2026-10-23T17:12:53Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: After deployment, the personal page uses the same required/not_required/hidden settings as checkout for recipient and delivery address fields.
+        recorded_at: '2026-10-23T17:12:53Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Implementation report, validation results, and deployment handoff are complete.
+        recorded_at: '2026-10-23T17:12:53Z'
+    notes: 'Work завершён: настройки field_* теперь применяются к personal-форме.'
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/apply-russian-post-field-recipient-name-field-index-to-field-region-to-f.capsule.yaml
+  assignment_capsule_checksum: 'sha256:7805d7c79ce7fe62bc5ce3461e550059092f4dd6c4c1e416f795184b48b07c0a'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/**
+  - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/**
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Extension/WishboxRussianPost.php
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/**
+  - .pf/artifacts/russianpost-personal-field-settings/**
+  - .pf/tmp/russianpost-personal-field-settings/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/layouts/radicalmart/personal.php
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Extension/WishboxRussianPost.php
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/PersonalShippingMethodFormPreparer.php
+  - .pf/artifacts/russianpost-personal-field-settings/**
+  - .pf/tmp/russianpost-personal-field-settings/**
+required_outputs:
+  -
+    id: russianpost-personal-field-settings-report
+    path: .pf/artifacts/russianpost-personal-field-settings/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/russianpost-personal-field-settings/report.md
+  language: ru
+  format: markdown

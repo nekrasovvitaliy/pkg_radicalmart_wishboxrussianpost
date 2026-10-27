@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field">
+    <fieldset>
+        <field name="index_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INDEX_TO_LABEL"
+               required="true"
+               onchange="RadicalMartCheckout().reloadForm(this);"
+               hide_default="true"
+               hide_none="true"
+        />
+    </fieldset>
+</form>

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "assignment": {
+    "allowed_actions": ["read", "write_artifact", "write_product"],
+    "allowed_read_files": [
+      "AGENTS.md",
+      ".pf/AGENTS.md",
+      ".pf/process-forge.yaml",
+      ".pf/contexts/**",
+      ".pf/assignments/**",
+      "*.php",
+      "*.xml",
+      "build.xml",
+      "language/**",
+      "com_*/**",
+      "plg_*/**",
+      "lib_*/**",
+      ".pf/artifacts/order-registration/**",
+      ".pf/tmp/order-registration/**"
+    ],
+    "allowed_files": [
+      "plg_content_wishboxradicalmartrussianpostorderregistration/**",
+      "plg_radicalmart_wishboxrussianpostorderregistration/**",
+      "lib_wishboxradicalmartrussianpostorderregistration/**",
+      "build.xml",
+      "pkg_radicalmart_wishboxrussianpost.xml",
+      ".pf/artifacts/order-registration/**",
+      ".pf/tmp/order-registration/**"
+    ],
+    "execution_mode": {
+      "kind": "implementation",
+      "code_changes_allowed": true,
+      "artifact_changes_allowed": true,
+      "requires_review": true
+    },
+    "required_outputs": [
+      {
+        "id": "order-registration-report",
+        "path": ".pf/artifacts/order-registration/report.md",
+        "type": "markdown",
+        "required": true
+      }
+    ],
+    "expected_report": {
+      "artifact": ".pf/artifacts/order-registration/report.md",
+      "language": "ru",
+      "format": "markdown"
+    }
+  },
+  "predecessor": {
+    "run_id": "garage-work",
+    "assignment_id": "task",
+    "capsule_checksum": "sha256:4734e063a4451015917ee03a22fb00bb539f5c3ca697e9cfc5c9573bd532bd37"
+  }
+}

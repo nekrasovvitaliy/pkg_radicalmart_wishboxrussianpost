@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field">
+    <fieldset name="fields" label="PLG_RADICALMART_SHIPPING_WISHBORUSSIANPOST_FIELDSET_PARAMS_BASIC">
+        <fields name="params">
+
+            <field name="shipping_payer" type="list"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_PAYER_LABEL"
+                   required="true"
+                   default="id"
+                   hide_none="true"
+                   hide_default="true">
+                <option value="buyer">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_PAYER_BUYER_OPTION
+                </option>
+                <option value="seller">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_PAYER_SELLER_OPTION
+                </option>
+            </field>
+
+            <field name="courier" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_COURIER_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="fragile" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_FRAGILE_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="completeness_checking" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_COMPLETENESS_CHECKING_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="contents_checking" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_CONTENTS_CHECKING_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="inventory" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INVENTORY_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="vsd" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_VSD_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="with_electronic_notice" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_WITH_ELECTRONIC_NOTICE_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="with_order_of_notice" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_WITH_ORDER_OF_NOTICE_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="with_simple_notice" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_WITH_SIMPLE_NOTICE_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="mail_type"
+                   type="MailType"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_MAIL_TYPE_LABEL"
+                   required="true"
+                   addfieldprefix="Joomla\Component\WishboxRussianPost\Administrator\Field"
+                   hide_default="true"
+                   hide_none="true"
+            />
+
+            <field name="russianpost_product_code_source" type="list"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RUSSIANPOST_PRODUCT_CODE_SOURCE_LABEL"
+                   required="true"
+                   default="id"
+                   hide_none="true"
+                   hide_default="true">
+                <option value="code">code</option>
+                <option value="id">id</option>
+            </field>
+
+            <field name="include_shipping_price_in_order" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INCLUDE_SHIPPING_PRICE_IN_ORDER_LABEL"
+                   layout="joomla.form.field.radio.switcher"
+                   default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field name="shipping_markup" type="subform"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_MARKUP_LABEL"
+                   buttons="add,remove,move"
+                   layout="joomla.form.field.subform.repeatable">
+                <form>
+                    <fieldset>
+
+                        <field name="use" type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_MARKUP_USE_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer">
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="ratio" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_MARKUP_RATIO_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="use:1"
+                        />
+
+                        <field name="value" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SHIPPING_MARKUP_VALUE_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="use:1"/>
+
+                    </fieldset>
+                </form>
+            </field>
+
+            <field name="delivery_recipient_cost" type="subform"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_DELIVERY_RECIPIENT_COST_LABEL"
+                   buttons="add,remove,move"
+                   layout="joomla.form.field.subform.repeatable">
+                <form>
+                    <fieldset>
+
+                        <field name="use_default_value" type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_USE_DEFAULT_VALUE_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer">
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="default_value"
+                               type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_DEFAULT_VALUE_LABEL"
+                               showon="useDefaultValue:1"/>
+
+                        <field name="use_tariff_value"
+                               type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_USE_TARIFF_VALUE_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer">
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="tariff_value_ratio" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_TARIFF_VALUE_RATIO_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="useTariffValue:1"/>
+
+                        <field name="tariff_value_markup" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_TARIFF_VALUE_MARKUP_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="useTariffValue:1"/>
+                    </fieldset>
+                </form>
+            </field>
+
+            <field name="delivery_recipient_cost" type="subform"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_DELIVERY_RECIPIENT_COST_LABEL"
+                   buttons="add,remove,move"
+                   layout="joomla.form.field.subform.repeatable">
+                <form>
+                    <fieldset>
+
+                        <field name="use_default_value" type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_USE_DEFAULT_VALUE_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer">
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="default_value" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_DEFAULT_VALUE_LABEL"
+                               showon="use_default_value:1"
+                        />
+
+                        <field name="use_tariff_value" type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_USE_TARIFF_VALUE_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer"
+                        >
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="tariff_value_ratio" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_TARIFF_VALUE_RATIO_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="useTariffValue:1"
+                        />
+
+                        <field name="tariff_value_markup" type="number"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_TARIFF_VALUE_MARKUP_LABEL"
+                               default="1"
+                               step="0.01"
+                               showon="useTariffValue:1"
+                        />
+
+                    </fieldset>
+                </form>
+            </field>
+
+            <field
+                    name="product_payment" type="subform"
+                    label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_PRODUCT_PAYMENT_LABEL"
+                    buttons="add,remove,move"
+                    layout="joomla.form.field.subform.repeatable"
+            >
+                <form>
+                    <fieldset>
+
+                        <field name="use_product_payment" type="radio"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_USE_PRODUCT_PAYMENT_LABEL"
+                               default="1"
+                               layout="joomla.form.field.radio.switcher"
+                               filter="integer">
+                            <option value="0">JNO</option>
+                            <option value="1">JYES</option>
+                        </field>
+
+                        <field name="product_payment_vat_rate" type="list"
+                               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_PRODUCT_PAYMENT_VAT_RATE_LABEL"
+                               default="null"
+                               showon="use_product_payment:1"
+                               hide_none="true"
+                               hide_default="true">
+                            <option value="0">0</option>
+                            <option value="5">5</option>
+                            <option value="7">7</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="20">20</option>
+                            <option value="null">null</option>
+                        </field>
+
+                    </fieldset>
+                </form>
+            </field>
+
+        </fields>
+    </fieldset>
+
+    <fieldset name="settings_fields" tab="settings"
+              label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELDSET_CHECKOUT_FIELDS">
+        <fields name="params">
+
+            <field name="field_recipient_name" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RECIPIENT_NAME_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_index_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INDEX_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_region_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_REGION_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_place_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_PLACE_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_street_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_STREET_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_house_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_HOUSE_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+            <field name="field_room_to" type="radio"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_ROOM_TO_LABEL"
+                   class="btn-group btn-group-yesno"
+                   default="not_required">
+                <option value="required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_REQUIRED</option>
+                <option value="not_required">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_NOT_REQUIRED</option>
+                <option value="hidden">PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_OPTION_HIDDEN</option>
+            </field>
+
+        </fields>
+    </fieldset>
+
+    <fieldset name="sender" label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELDSET_SENDER">
+        <fields name="params">
+
+            <field name="sender_company" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SENDER_COMPANY_LABEL"
+            />
+
+            <field name="index_from" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INDEX_FROM_LABEL"
+                   required="true"
+                   hide_default="true"
+                   hide_none="true"
+            />
+
+            <field name="sender_name" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SENDER_NAME_LABEL"/>
+
+            <field name="sender_phone_number" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SENDER_PHONE_NUMBER_LABEL"
+                   maxlength="24"
+                   required="true"/>
+
+            <field name="sender_phone_additional" type="textarea"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SENDER_PHONE_ADDITIONAL_LABEL"
+                   maxlength="255"/>
+        </fields>
+
+    </fieldset>
+
+    <fieldset name="seller" label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELDSET_SELLER">
+        <fields name="params">
+
+            <field name="seller_name" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SELLER_NAME_LABEL"/>
+
+            <field name="seller_inn" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SELLER_INN_LABEL"/>
+
+            <field name="seller_phone" type="text"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SELLER_PHONE_LABEL"/>
+
+            <field name="seller_owner_ship_form_code" type="list"
+                   label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_SELLER_OWNER_SHIP_FORM_CODE_LABEL"
+                   hide_default="true">
+                <option value="9">Акционерное общество</option>
+                <option value="61">Закрытое акционерное общество</option>
+                <option value="63">Индивидуальный предприниматель</option>
+                <option value="119">Открытое акционерное общество</option>
+                <option value="137">Общество с ограниченной ответственностью</option>
+                <option value="147">Публичное акционерное общество</option>
+            </field>
+        </fields>
+    </fieldset>
+</form>

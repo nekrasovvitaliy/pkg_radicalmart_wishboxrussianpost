@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="4.3.4" method="upgrade">
+    <name>pkg_radicalmart_wishboxrussianpost</name>
+    <packagename>radicalmart_wishboxrussianpost</packagename>
+    <author>Nekrasov Vitaliy</author>
+    <authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+    <creationDate>December 2023</creationDate>
+    <version>1.0.0</version>
+    <packager>Nekrasov Vitaliy</packager>
+    <description>PKG_RADICALMART_WISHBOXRUSSIANPOST_XML_DESCRIPTION</description>
+    <scriptfile>script.php</scriptfile>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/pkg_radicalmart_wishboxrussianpost.sys.ini</language>
+        <language tag="ru-RU">ru-RU/pkg_radicalmart_wishboxrussianpost.sys.ini</language>
+    </languages>
+    <files>
+        <file type="component" id="com_wishboxradicalmartrussianpost">com_wishboxradicalmartrussianpost.zip</file>
+        <file type="plugin" group="radicalmart_shipping" id="wishboxrussianpost">plg_radicalmart_shipping_wishboxrussianpost.zip</file>
+        <file type="plugin" group="radicalmart" id="wishboxrussianpost">plg_radicalmart_wishboxrussianpost.zip</file>
+    </files>
+</extension>

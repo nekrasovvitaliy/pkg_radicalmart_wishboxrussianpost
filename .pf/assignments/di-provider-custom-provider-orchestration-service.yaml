@@ -1,0 +1,225 @@
+schema_version: 1
+id: di-provider-custom-provider-orchestration-service
+title: 'Исправить DI provider регистрации заказа Почты России: добавить отсутствующий cu'
+run_id: garage-di-provider-custom-provider-orchestration-service
+process: task-batch-execution
+status: done
+created_at: '2026-10-27T09:17:26Z'
+updated_at: '2026-10-27T09:18:18Z'
+objective: 'Исправить DI provider регистрации заказа Почты России: добавить отсутствующий custom provider и корректно зарегистрировать orchestration service.'
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: DI provider fix завершён.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-27T09:18:18Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: 'Критический DI разрыв устранён: custom provider существует и регистрирует orchestration service.'
+      recorded_at: '2026-10-27T09:18:18Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Изменены plugin provider, orchestration service и добавлен library service provider; PHP lint успешен.
+      recorded_at: '2026-10-27T09:18:18Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Результат и проверки зафиксированы.
+      recorded_at: '2026-10-27T09:18:18Z'
+  notes: DI provider fix завершён.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-27T09:17:26Z'
+    completed_at: '2026-10-27T09:17:30Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Создан implementation Work для исправления DI provider.
+        recorded_at: '2026-10-27T09:17:30Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Контекст свежий; scope включает plugin provider, orchestration service и новый custom provider.
+        recorded_at: '2026-10-27T09:17:30Z'
+    notes: Передать в планирование DI wiring.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-27T09:17:30Z'
+    completed_at: '2026-10-27T09:17:30Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Добавить custom provider policy/service, сделать orchestrator container-aware, исправить plugin provider style и проверить DI symbols.
+        recorded_at: '2026-10-27T09:17:30Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: Одна связная DI-задача в трёх разрешённых PHP-файлах.
+        recorded_at: '2026-10-27T09:17:30Z'
+    notes: Передать исправление в execution.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-27T09:17:30Z'
+    completed_at: '2026-10-27T09:18:12Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Добавлен custom provider; policy и orchestration service зарегистрированы; service сделан container-aware; plugin provider приведён в соответствие.
+        recorded_at: '2026-10-27T09:18:12Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: PHP lint трёх файлов и проверки namespace/class key/manifest прошли.
+        recorded_at: '2026-10-27T09:18:12Z'
+    notes: Передать DI fix на фиксацию.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-27T09:18:12Z'
+    completed_at: '2026-10-27T09:18:12Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: DI container теперь может создать RadicalMartOrderRegistrationService и предоставить его plugin aware trait.
+        recorded_at: '2026-10-27T09:18:12Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: Implementation и обязательный отчёт готовы.
+        recorded_at: '2026-10-27T09:18:12Z'
+    notes: Передать исправление на review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-27T09:18:12Z'
+    completed_at: '2026-10-27T09:18:18Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: Проверены registration order, custom provider namespace, class key, container injection, manifest coverage и Joomla style.
+        recorded_at: '2026-10-27T09:18:18Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: task-doctor и run-doctor --runtime-events прошли без ошибок.
+        recorded_at: '2026-10-27T09:18:18Z'
+    notes: Review принят; передать результат в summary.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-27T09:18:18Z'
+    completed_at: '2026-10-27T09:18:18Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: 'Критический DI разрыв устранён: custom provider существует и регистрирует orchestration service.'
+        recorded_at: '2026-10-27T09:18:18Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Изменены plugin provider, orchestration service и добавлен library service provider; PHP lint успешен.
+        recorded_at: '2026-10-27T09:18:18Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Результат и проверки зафиксированы.
+        recorded_at: '2026-10-27T09:18:18Z'
+    notes: DI provider fix завершён.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/di-provider-custom-provider-orchestration-service.capsule.yaml
+  assignment_capsule_checksum: 'sha256:012ce63c622fa76793584143abb21727e98004d34b062777b104aa012b0512c8'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_wishboxrussianpostorderregistration/**
+  - lib_wishboxradicalmartrussianpostorderregistration/**
+  - .pf/artifacts/provider-fix/**
+  - .pf/tmp/provider-fix/**
+allowed_files:
+  - plg_radicalmart_wishboxrussianpostorderregistration/services/provider.php
+  - lib_wishboxradicalmartrussianpostorderregistration/src/OrderRegistration/RadicalMartOrderRegistrationService.php
+  - lib_wishboxradicalmartrussianpostorderregistration/src/Service/Provider/RadicalMartOrderRegistration.php
+  - .pf/artifacts/provider-fix/**
+  - .pf/tmp/provider-fix/**
+required_outputs:
+  -
+    id: provider-fix-report
+    path: .pf/artifacts/provider-fix/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/provider-fix/report.md
+  language: ru
+  format: markdown

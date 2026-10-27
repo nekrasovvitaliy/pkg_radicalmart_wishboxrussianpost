@@ -1,0 +1,223 @@
+schema_version: 1
+id: add-the-seven-russian-post-recipient-and-delivery-address-user-fields-fr
+title: Add the seven Russian Post recipient and delivery address user fields from check
+run_id: garage-add-the-seven-russian-post-recipient-and-delivery-address-user-fi
+process: task-batch-execution
+status: done
+created_at: '2026-10-24T08:23:59Z'
+updated_at: '2026-10-24T08:24:52Z'
+objective: Add the seven Russian Post recipient and delivery address user fields from checkout.xml to forms/radicalmart/order_site.xml while preserving the existing mail_type field and order-site form structure.
+platform: ""
+selected_specializations:
+  []
+order: 1
+dependencies:
+  blocked_by:
+    []
+  blocks:
+    []
+iterations:
+  []
+result:
+  status: done
+  summary: Completed the scoped order_site.xml form update and all validation checks.
+  artifacts:
+    []
+execution_mode:
+  kind: implementation
+  code_changes_allowed: true
+  artifact_changes_allowed: true
+  requires_review: true
+stage: run-summary
+stage_status: completed
+stage_execution:
+  started_at: '2026-10-24T08:24:49Z'
+  evidence:
+    -
+      kind: artifact
+      artifact_id: run-summary
+      status: ready
+      summary: Added recipient_name, index_to, region_to, place_to, street_to, house_to, and optional room_to to order_site.xml; retained mail_type.
+      recorded_at: '2026-10-24T08:24:52Z'
+    -
+      kind: artifact
+      artifact_id: run-handoff
+      status: ready
+      summary: Implementation is complete; no follow-up action is required.
+      recorded_at: '2026-10-24T08:24:52Z'
+    -
+      kind: gate
+      gate_id: run-summary-created
+      status: passed
+      summary: Final summary and handoff evidence recorded.
+      recorded_at: '2026-10-24T08:24:52Z'
+  notes: Completed the scoped order_site.xml form update and all validation checks.
+stage_history:
+  -
+    stage_id: run-intake
+    status: completed
+    started_at: '2026-10-24T08:23:59Z'
+    completed_at: '2026-10-24T08:24:04Z'
+    outcome: completed
+    next_stage_id: task-planning
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-record
+        status: ready
+        summary: Created scoped Work to synchronize order_site.xml with Russian Post checkout user fields.
+        recorded_at: '2026-10-24T08:24:04Z'
+      -
+        kind: gate
+        gate_id: run-has-context
+        status: passed
+        summary: Fresh context and execution-ready immutable capsule verified.
+        recorded_at: '2026-10-24T08:24:04Z'
+    notes: Передать изменение order_site.xml в планирование.
+  -
+    stage_id: task-planning
+    status: completed
+    started_at: '2026-10-24T08:24:04Z'
+    completed_at: '2026-10-24T08:24:07Z'
+    outcome: completed
+    next_stage_id: task-execution-loop
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-index
+        status: ready
+        summary: Add recipient_name, region_to, place_to, street_to, house_to, and room_to around existing index_to in order_site.xml, matching checkout labels and requiredness while retaining mail_type.
+        recorded_at: '2026-10-24T08:24:07Z'
+      -
+        kind: gate
+        gate_id: run-has-tasks
+        status: passed
+        summary: One bounded order_site.xml edit and XML parity validation task is ready.
+        recorded_at: '2026-10-24T08:24:07Z'
+    notes: Шесть адресных полей обязательны вместе с index_to; room_to необязательное; mail_type не изменять.
+  -
+    stage_id: task-execution-loop
+    status: completed
+    started_at: '2026-10-24T08:24:07Z'
+    completed_at: '2026-10-24T08:24:22Z'
+    outcome: completed
+    next_stage_id: task-result-fixation
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-iteration-log
+        status: ready
+        summary: Added six missing Russian Post user fields around existing index_to in order_site.xml, preserved mail_type and matching checkout requiredness, and passed XML/parity checks.
+        recorded_at: '2026-10-24T08:24:22Z'
+      -
+        kind: gate
+        gate_id: task-results-recorded
+        status: passed
+        summary: Implementation and validation are recorded in .pf/artifacts/russianpost-order-site-fields/report.md.
+        recorded_at: '2026-10-24T08:24:22Z'
+    notes: Передать order_site.xml на фиксацию результата.
+  -
+    stage_id: task-result-fixation
+    status: completed
+    started_at: '2026-10-24T08:24:22Z'
+    completed_at: '2026-10-24T08:24:27Z'
+    outcome: completed
+    next_stage_id: run-review
+    evidence:
+      -
+        kind: artifact
+        artifact_id: task-result
+        status: ready
+        summary: order_site.xml now contains all seven Russian Post recipient and address fields used by checkout.xml while retaining mail_type.
+        recorded_at: '2026-10-24T08:24:27Z'
+      -
+        kind: gate
+        gate_id: all-blocking-tasks-completed
+        status: passed
+        summary: The scoped XML form update completed and structural/parity checks passed.
+        recorded_at: '2026-10-24T08:24:27Z'
+    notes: Передать форму и отчёт на ProcessForge review.
+  -
+    stage_id: run-review
+    status: completed
+    started_at: '2026-10-24T08:24:27Z'
+    completed_at: '2026-10-24T08:24:49Z'
+    outcome: completed
+    next_stage_id: run-summary
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-review
+        status: ready
+        summary: 'Reviewed order_site.xml: seven Russian Post recipient/address fields match checkout.xml and mail_type is preserved.'
+        recorded_at: '2026-10-24T08:24:49Z'
+      -
+        kind: gate
+        gate_id: run-doctor-passed
+        status: passed
+        summary: run-doctor and task-doctor passed.
+        recorded_at: '2026-10-24T08:24:49Z'
+    notes: Review completed; XML structure and field parity were verified.
+  -
+    stage_id: run-summary
+    status: completed
+    started_at: '2026-10-24T08:24:49Z'
+    completed_at: '2026-10-24T08:24:52Z'
+    outcome: completed
+    next_stage_id: ""
+    evidence:
+      -
+        kind: artifact
+        artifact_id: run-summary
+        status: ready
+        summary: Added recipient_name, index_to, region_to, place_to, street_to, house_to, and optional room_to to order_site.xml; retained mail_type.
+        recorded_at: '2026-10-24T08:24:52Z'
+      -
+        kind: artifact
+        artifact_id: run-handoff
+        status: ready
+        summary: Implementation is complete; no follow-up action is required.
+        recorded_at: '2026-10-24T08:24:52Z'
+      -
+        kind: gate
+        gate_id: run-summary-created
+        status: passed
+        summary: Final summary and handoff evidence recorded.
+        recorded_at: '2026-10-24T08:24:52Z'
+    notes: Completed the scoped order_site.xml form update and all validation checks.
+process_execution:
+  process_id: task-batch-execution
+  process_version: 1.0.0
+  process_fingerprint: 'sha256:f5785bc814a45efeb91625cf907d0546b9997dc0f9ce3e7e4cd7ed44de0dabb2'
+  snapshot_id: ctx-20261023-155255-a6985b
+  snapshot_checksum: 'sha256:6f4d9d8f85df459b770b6608fa64fbc4d19419dd30bbd9bcbb72e4c943d2b049'
+  assignment_capsule: .pf/contexts/assignment-capsules/add-the-seven-russian-post-recipient-and-delivery-address-user-fields-fr.capsule.yaml
+  assignment_capsule_checksum: 'sha256:3d53c3bce64bce4ff39ca273ac8af4820d042711df569e623cc6bed93a7e5066'
+allowed_actions:
+  - read
+  - write_artifact
+  - write_product
+allowed_read_files:
+  - AGENTS.md
+  - .pf/AGENTS.md
+  - .pf/process-forge.yaml
+  - .pf/contexts/**
+  - .pf/assignments/**
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/**
+  - plg_radicalmart_shipping_wishboxrussianpost/src/Service/Form/Preparer/OrderSiteFormPreparer.php
+  - .pf/artifacts/russianpost-order-site-fields/**
+  - .pf/tmp/russianpost-order-site-fields/**
+allowed_files:
+  - plg_radicalmart_shipping_wishboxrussianpost/forms/radicalmart/order_site.xml
+  - .pf/artifacts/russianpost-order-site-fields/**
+  - .pf/tmp/russianpost-order-site-fields/**
+required_outputs:
+  -
+    id: russianpost-order-site-fields-report
+    path: .pf/artifacts/russianpost-order-site-fields/report.md
+    type: markdown
+    required: true
+expected_report:
+  artifact: .pf/artifacts/russianpost-order-site-fields/report.md
+  language: ru
+  format: markdown

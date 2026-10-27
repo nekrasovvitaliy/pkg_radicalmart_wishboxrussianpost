@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field">
+    <fieldset>
+        <field name="recipient_name"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_RECIPIENT_NAME_LABEL"
+               required="true"
+        />
+
+        <field name="index_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_INDEX_TO_LABEL"
+               required="true"
+               onchange="RadicalMartCheckout().reloadForm(this);"
+               hide_default="true"
+               hide_none="true"
+        />
+
+        <field name="region_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_REGION_TO_LABEL"
+               required="true"
+        />
+
+        <field name="place_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_PLACE_TO_LABEL"
+               required="true"
+        />
+
+        <field name="street_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_STREET_TO_LABEL"
+               required="true"
+        />
+
+        <field name="house_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_HOUSE_TO_LABEL"
+               required="true"
+        />
+
+        <field name="room_to"
+               type="text"
+               label="PLG_RADICALMART_SHIPPING_WISHBOXRUSSIANPOST_FIELD_ROOM_TO_LABEL"
+               required="false"
+        />
+    </fieldset>
+</form>
